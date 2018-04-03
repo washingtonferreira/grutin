@@ -18,12 +18,12 @@ for e in estados:
 
     for a in alfabeto:
         if a == '':
-            transicaoEstado[a] = input('Estado {} vendo {} vai para o Estado: '.format(e, 'vazio'))
+            transicaoEstado[a] = input('Estado {} vendo {} vai para o Estado: '.format(e, 'vazio')).split(',')
         else:
-            transicaoEstado[a] = input('Estado {} vendo {} vai para o Estado: '.format(e, a))
+            transicaoEstado[a] = input('Estado {} vendo {} vai para o Estado: '.format(e, a)).split(',')
     funcaoTransicao[e] = transicaoEstado
 
-cadeia = input("Informe a cadeia: ")
+cadeia = input("Informe a cadeia: ") 
 
 nfa = NFA(
     states=estados,
