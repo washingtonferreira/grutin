@@ -12,34 +12,45 @@ from automatos.NFA import *
 class Ui_AFNDScreen(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(580, 235)
+        MainWindow.resize(535, 234)
         MainWindow.setAnimated(False)
-
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
-        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
-        self.tableWidget.setObjectName("tableWidget")
-
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 150, 300, 16))
+        self.label.setGeometry(QtCore.QRect(20, 160, 241, 16))
         self.label.setObjectName("label")
-
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(20, 40, 181, 20))
         self.lineEdit.setObjectName("lineEdit")
-
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 70, 75, 23))
         self.btn.setObjectName("btn")
-        self.btn.clicked.connect(self.teste)
-
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(290, 20, 211, 151))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.strInput = QtWidgets.QLineEdit(self.centralwidget)
+        self.strInput.setGeometry(QtCore.QRect(20, 120, 113, 20))
+        self.strInput.setObjectName("strInput")
+        self.btnOK = QtWidgets.QPushButton(self.centralwidget)
+        self.btnOK.setGeometry(QtCore.QRect(150, 120, 75, 23))
+        self.btnOK.setObjectName("btnOK")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 535, 21))
+        self.menuBar.setObjectName("menuBar")
+        self.menuAFD = QtWidgets.QMenu(self.menuBar)
+        self.menuAFD.setObjectName("menuAFD")
+        MainWindow.setMenuBar(self.menuBar)
+        self.actionConverter_para_AFND = QtWidgets.QAction(MainWindow)
+        self.actionConverter_para_AFND.setObjectName("actionConverter_para_AFND")
+        self.menuAFD.addAction(self.actionConverter_para_AFND)
+        self.menuBar.addAction(self.menuAFD.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -124,6 +135,10 @@ class Ui_AFNDScreen(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "TextLabel"))
         self.btn.setText(_translate("MainWindow", "click"))
+        self.btnOK.setText(_translate("MainWindow", "Ok"))
+        self.menuAFD.setTitle(_translate("MainWindow", "AFND"))
+        self.actionConverter_para_AFND.setText(_translate("MainWindow", "Converter para AFD"))
+
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from view.AFDScreen import Ui_AFDScreen
 from view.AFNDScreen import Ui_AFNDScreen
+from view.DPDAScreen import Ui_DPDAScreen
 
 class Ui_MainWindow(object):
     def openAFDScreen(self):
@@ -20,6 +21,12 @@ class Ui_MainWindow(object):
     def openAFNDScreen(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_AFNDScreen()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openDPDAScreen(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_DPDAScreen()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -74,7 +81,7 @@ class Ui_MainWindow(object):
         self.openAFNDScreen()
 
     def callPDAScreen(self):
-        print('teste')
+        self.openDPDAScreen()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

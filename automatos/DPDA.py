@@ -18,46 +18,22 @@ def definicaoFormal(defFormal):
     return estados, alfabeto, alfabetoPilha, estInical, simboloInicialPilha, estFinais
 
 
-def getTransicao(estados, alfabeto, alfabetoPilha):
-    transition = {}
-    for s in estados:
-        t1 = {}
-        for sa in alfabeto:
-            t2 = {}
-            for ss in alfabetoPilha:
-                c = input('({}, {}, {}) = '.format(s, sa, ss))
-                c += ','
+def creatDPDA(states, alphabet, alphabetStack, transition, initialState, symbolsStackInitial, finalStates):
 
-                c = c.replace(' ', '').split(',')
-                d = tuple(c[1])
-                if d == ():
-                    d = ''
-                if c[0] != '':
-                    t2[ss] = (c[0], d)
-            if t2 != {}:
-                t1[sa] = t2
-            if t1 != {}:
-                transition[s] = t1
-
-    return transition
-
-
-def creatDPDA(estados, alfabeto, alfabetoPilha, transition, estInicial, initial_stack_symbol, estFinais):
-
-    for i in range(len(alfabeto)):
-        if alfabeto[i] == '':
-            del alfabeto[i]
+    for i in range(len(alphabet)):
+        if alphabet[i] == '':
+            del alphabet[i]
 
     return DPDA(
-        states=set(estados),
-        input_symbols=set(alfabeto),
-        stack_symbols=set(alfabetoPilha),
+        states=set(states),
+        input_symbols=set(alphabet),
+        stack_symbols=set(alphabetStack),
         transitions=transition,
-        initial_state=estInicial,
-        initial_stack_symbol=initial_stack_symbol,
-        final_states=set(estFinais)
-    )
+        initial_state=initialState,
+        initial_stack_symbol=symbolsStackInitial,
+        final_states=set(finalStates)
+)
 
 
-def showAutomatos(dpda, cadeia):
-    print([(state, stack.copy()) for state, stack in dpda.validate_input(cadeia, step=True)])
+def returnAutomatos(dpda, cadeia):
+    return str([(state, stack.copy()) for state, stack in dpda.validate_input(cadeia, step=True)])
