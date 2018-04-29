@@ -64,6 +64,16 @@ class Ui_DPDAScreen(object):
 
         self.tableWidget.show()
 
+    def verticalSymbols(self, states, input_symbols, stack_symbols):
+        teste = []
+        for s in states:
+            for sa in input_symbols:
+                for ss in stack_symbols:
+                    c = '({}, {}, {})'.format(s, sa, ss)
+                    teste.append(c)
+        return teste
+
+
     def c_current(self):
         states = sorted(self.states)
         symbols = sorted(self.symbols)
@@ -94,6 +104,7 @@ class Ui_DPDAScreen(object):
                 if alphabet not in dict(self.transition[state]).keys():
                     self.transition[state][alphabet] = {stackSymble: value}
                     print()
+
                 self.transition[state][alphabet][stackSymble] = value
 
         self.newField()
@@ -129,17 +140,12 @@ class Ui_DPDAScreen(object):
 
     def run(self):
 
-        # self.transition = {'q0': {'a': {'0': ('q1', ('1', '0'))}},
-        #                    'q2': {'': {'0': ('q3', ('0',))}, 'b': {'1': ('q2', '')}},
-        #                    'q1': {'b': {'1': ('q2', '')}, 'a': {'1': ('q1', ('1', '1'))}}}
-
-
         pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
                         self.symbolsStackInitialself, self.finalStates)
 
-        print([(state, stack.copy()) for state, stack in pda.validate_input('ab', step=True)])
+        print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
 
-        text = str([(state, stack.copy()) for state, stack in pda.validate_input('ab', step=True)])
+        text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
         self.label.setText(text)
 
     def teste(self):
