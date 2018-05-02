@@ -11,6 +11,7 @@ from view.AFDScreen import Ui_AFDScreen
 from view.AFNDScreen import Ui_AFNDScreen
 from view.DPDAScreen import Ui_DPDAScreen
 
+
 class Ui_MainWindow(object):
     def openAFDScreen(self):
         self.window = QtWidgets.QMainWindow()
@@ -33,43 +34,76 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(568, 266)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
         MainWindow.setCentralWidget(self.centralwidget)
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(10, 0, 551, 241))
+        self.label.setObjectName("label")
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 568, 21))
         self.menubar.setObjectName("menubar")
 
         self.menu_automatos = QtWidgets.QMenu(self.menubar)
         self.menu_automatos.setObjectName("menu_automatos")
-        # self.menu_automatos.triggered.connect(self.callAFDScreen)  # add função ao menu
+
+        self.menuAFD = QtWidgets.QMenu(self.menu_automatos)
+        self.menuAFD.setObjectName("menuAFD")
+
+        self.menuAFND = QtWidgets.QMenu(self.menu_automatos)
+        self.menuAFND.setObjectName("menuAFND")
+
+        self.menuPDA = QtWidgets.QMenu(self.menu_automatos)
+        self.menuPDA.setObjectName("menuPDA")
 
         MainWindow.setMenuBar(self.menubar)
 
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
+
         MainWindow.setStatusBar(self.statusbar)
 
-        self.actionAFD = QtWidgets.QAction(MainWindow)
-        self.actionAFD.setObjectName("actionAFD")
-        self.actionAFD.triggered.connect(self.callAFDScreen)
+        self.actionAutomato_2 = QtWidgets.QAction(MainWindow)
+        self.actionAutomato_2.setObjectName("actionAutomato_2")
+        self.actionAutomato_2.triggered.connect(self.callAFDScreen)
 
-        self.actionAFND = QtWidgets.QAction(MainWindow)
-        self.actionAFND.setObjectName("actionAFND")
-        self.actionAFND.triggered.connect(self.callAFNDScreen)
+        self.actionExercicios_4 = QtWidgets.QAction(MainWindow)
+        self.actionExercicios_4.setObjectName("actionExercicios_4")
+        self.actionExercicios_4.triggered.connect(self.callExercise)
 
-        self.actionPDA = QtWidgets.QAction(MainWindow)
-        self.actionPDA.setObjectName("actionPDA")
-        self.actionPDA.triggered.connect(self.callPDAScreen)
+        self.actionAutomato_3 = QtWidgets.QAction(MainWindow)
+        self.actionAutomato_3.setObjectName("actionAutomato_3")
+        self.actionAutomato_3.triggered.connect(self.callAFNDScreen)
 
+        self.actionExercicios_5 = QtWidgets.QAction(MainWindow)
+        self.actionExercicios_5.setObjectName("actionExercicios_5")
+        self.actionExercicios_5.triggered.connect(self.callExercise)
 
-        self.menu_automatos.addAction(self.actionAFD)
-        self.menu_automatos.addAction(self.actionAFND)
-        self.menu_automatos.addAction(self.actionPDA)
+        self.actionAutomato_4 = QtWidgets.QAction(MainWindow)
+        self.actionAutomato_4.setObjectName("actionAutomato_4")
+        self.actionAutomato_4.triggered.connect(self.callPDAScreen)
+
+        self.actionExercicios_6 = QtWidgets.QAction(MainWindow)
+        self.actionExercicios_6.setObjectName("actionExercicios_6")
+
+        self.menuAFD.addAction(self.actionAutomato_2)
+        self.menuAFD.addAction(self.actionExercicios_4)
+
+        self.menuAFND.addAction(self.actionAutomato_3)
+        self.menuAFND.addAction(self.actionExercicios_5)
+
+        self.menuPDA.addAction(self.actionAutomato_4)
+        self.menuPDA.addAction(self.actionExercicios_6)
+
+        self.menu_automatos.addSeparator()
+
+        self.menu_automatos.addAction(self.menuAFD.menuAction())
+        self.menu_automatos.addAction(self.menuAFND.menuAction())
+        self.menu_automatos.addAction(self.menuPDA.menuAction())
         self.menubar.addAction(self.menu_automatos.menuAction())
-
-
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -83,14 +117,26 @@ class Ui_MainWindow(object):
     def callPDAScreen(self):
         self.openDPDAScreen()
 
+    def callExercise(self):
+        self.label.setText(
+            '1 - Crie um automato que aceite a cadeia 001101 \n'
+            '2 - Usando apenas 4 estados, crie um automato que aceite a cadeia 001110101 \n'
+            '3 - Defina uma tabela de transição para o automato ({q0, q1, q2, q3}, {0,1}, d, {q0}, {q2})')
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label.setText(_translate("MainWindow", ""))
         self.menu_automatos.setTitle(_translate("MainWindow", "Autômatos"))
-        self.actionAFD.setText(_translate("MainWindow", "AFD"))
-        self.actionAFND.setText(_translate("MainWindow", "AFND"))
-        self.actionPDA.setText(_translate("MainWindow", "PDA"))
-
+        self.menuAFD.setTitle(_translate("MainWindow", "AFD"))
+        self.menuAFND.setTitle(_translate("MainWindow", "AFND"))
+        self.menuPDA.setTitle(_translate("MainWindow", "PDA"))
+        self.actionAutomato_2.setText(_translate("MainWindow", "Automato"))
+        self.actionExercicios_4.setText(_translate("MainWindow", "Exercicios"))
+        self.actionAutomato_3.setText(_translate("MainWindow", "Automato"))
+        self.actionExercicios_5.setText(_translate("MainWindow", "Exercicios"))
+        self.actionAutomato_4.setText(_translate("MainWindow", "Automato"))
+        self.actionExercicios_6.setText(_translate("MainWindow", "Exercicios"))
 
 
 if __name__ == "__main__":
