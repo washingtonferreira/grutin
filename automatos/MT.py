@@ -48,7 +48,7 @@ def cria_maq_turing(estados, alfabeto, simbolos_fita, funcao_transicao, est_inic
         final_states=set(est_finais)
     )
 
-    return  dtm
+    return dtm
 
 
 def retorna_derivacao(mt, string_recebida):
