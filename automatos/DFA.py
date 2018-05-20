@@ -1,5 +1,9 @@
 import re
 from automata.fa.dfa import DFA
+from automata.fa.nfa import NFA
+
+def convertToNFA(dfa):
+    return NFA(dfa)
 
 def definicaoFormal(defFormal):
     regex = '\{.*?\}'
