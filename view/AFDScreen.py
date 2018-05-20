@@ -63,12 +63,9 @@ class Ui_AFDScreen(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def creatMenu(self):
-        print(5)
         _translate = QtCore.QCoreApplication.translate
-        self.menuAFD.setTitle(_translate("MainWindow", "Converter para AFD"))
-        self.actionConverter_para_AFND.setText(_translate("MainWindow", "Converter para AFD"))
-
-        print(6)
+        self.menuAFD.setTitle(_translate("MainWindow", "Converter para AFND"))
+        self.actionConverter_para_AFND.setText(_translate("MainWindow", "Converter para AFND"))
 
     def converterAFND(self):
         if self.tableWidget.isVisible():
