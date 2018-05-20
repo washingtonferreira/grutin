@@ -13,6 +13,7 @@ from automatos.DFA import *
 
 
 class Ui_AFDScreen(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(455, 235)
@@ -149,9 +150,6 @@ class Ui_AFDScreen(object):
 
         if self.label.text() != "":
             self.creatMenu()
-
-        # self.converterAFND()
-
 
     def teste(self):
         self.transition = {}

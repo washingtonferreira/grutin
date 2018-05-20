@@ -1,6 +1,13 @@
 import re
 from automata.fa.nfa import NFA
+from automata.fa.dfa import DFA
 
+
+def convertToDFA(nfa: NFA):
+    print(nfa.transitions)
+    print('teste')
+    print(DFA(nfa).transitions)
+    return DFA(nfa)
 
 def definicaoFormal(defFormal):
     defFormalPadrao = re.findall('\{.*?\}', defFormal)
