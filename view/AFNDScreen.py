@@ -11,6 +11,7 @@ from PyQt5.QtWidgets import QTableWidgetItem
 
 from automatos.NFA import *
 
+
 class Ui_AFNDScreen(object):
 
     def setupUi(self, MainWindow):
@@ -33,7 +34,7 @@ class Ui_AFNDScreen(object):
         self.btn.setEnabled(True)
         self.btn.setGeometry(QtCore.QRect(20, 70, 75, 23))
         self.btn.setObjectName("btn")
-        self.btn.clicked.connect(self.teste)
+        self.btn.clicked.connect(self.creatAFND)
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(290, 20, 211, 151))
@@ -72,6 +73,10 @@ class Ui_AFNDScreen(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.isAFND = True
+        self.transition = {}
+        self.temTransicao = False
+
     def converterAFD(self):
         if self.tableWidget.isVisible():
             self.resetTable()
@@ -98,6 +103,9 @@ class Ui_AFNDScreen(object):
                 value = str(dfa.transitions[s][sy])
                 self.tableWidget.setItem(linha, coluna, QTableWidgetItem(value))
 
+        self.isAFND = False
+        self.temTransicao = True
+
     def resetTable(self):
         self.tableWidget.clear()
         self.tableWidget.setDisabled(True)
@@ -114,6 +122,10 @@ class Ui_AFNDScreen(object):
         # self.tableWidget.setDisabled(True)
 
     def creatTable(self, states, symbols):
+
+        if self.tableWidget.isVisible():
+            self.resetTable()
+
         symbols.append('')
         symbols = sorted(symbols)
         symbols[0] = 'vazio'
@@ -168,26 +180,55 @@ class Ui_AFNDScreen(object):
         self.btnOK.clicked.connect(self.run)
 
     def run(self):
-        # print(self.transition)
-        self.nda = creatNFA(self.states, self.symbols, self.transition,  self.initialState, self.finalStates)
+      if self.strInput.text() != "":
+            if self.isAFND:
+                self.nda = creatNFA(self.states, self.symbols, self.transition, self.initialState, self.finalStates)
 
-        text = str(list(self.nda.validate_input(self.strInput.text(), step=True)))
-        print(text)
+                text = str(list(self.nda.validate_input(self.strInput.text(), step=True)))
 
-        self.label.setText('{}'.format(text))
+                self.label.setText('{}'.format(text))
 
-        if self.strInput != "":
-            self.creatMenu()
+                if self.strInput != "":
+                    self.creatMenu()
+            else:
+                self.isAFND = True
+                self.creatAFND()
+                self.run()
 
+    def creatAFND(self):
+        if self.lineEdit.text() != "":
+            self.dictionary = {}
 
-    def teste(self):
-        self.transition = {}
-        self.dictionary = {}
+            self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
+            self.creatTable(sorted(self.states), sorted(self.symbols))
 
-        self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
-        self.creatTable(sorted(self.states), sorted(self.symbols))
+            if self.temTransicao:
+                self.setTableValue(sorted(self.states), sorted(self.symbols))
 
-        self.tableWidget.cellChanged.connect(self.c_current)
+            self.tableWidget.cellChanged.connect(self.c_current)
+
+    def setTableValue(self, states, symbols):
+        symbols.append('')
+        symbols = sorted(symbols)
+
+        self.tableWidget.setColumnCount(len(symbols))
+        self.tableWidget.setRowCount(len(states))
+
+        self.tableWidget.setHorizontalHeaderLabels(symbols)
+        self.tableWidget.setVerticalHeaderLabels(states)
+
+        print('teste123')
+        print(self.transition)
+        print(self.nda.transitions)
+
+        for s in states:
+            for sy in symbols:
+                linha = states.index(s)
+                coluna = symbols.index(sy)
+                if s in dict(self.nda.transitions).keys():
+                    if sy in dict(self.nda.transitions[s]).keys():
+                        value = QTableWidgetItem(str(self.nda.transitions[s][sy]))
+                        self.tableWidget.setItem(linha, coluna, value)
 
     def creatMenu(self):
         _translate = QtCore.QCoreApplication.translate
@@ -200,6 +241,7 @@ class Ui_AFNDScreen(object):
         self.label.setText(_translate("MainWindow", "TextLabel"))
         self.btn.setText(_translate("MainWindow", "click"))
         self.btnOK.setText(_translate("MainWindow", "Ok"))
+
 
 if __name__ == "__main__":
     import sys
