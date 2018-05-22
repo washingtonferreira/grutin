@@ -16,7 +16,7 @@ class Ui_AFDScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(455, 235)
+        MainWindow.resize(535, 276)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -27,7 +27,7 @@ class Ui_AFDScreen(object):
         self.tableWidget.setObjectName("tableWidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 150, 171, 16))
+        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
@@ -38,7 +38,7 @@ class Ui_AFDScreen(object):
         self.btn.setEnabled(True)
         self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
         self.btn.setObjectName("btn")
-        self.btn.clicked.connect(self.teste)
+        self.btn.clicked.connect(self.creatAFD)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -61,6 +61,11 @@ class Ui_AFDScreen(object):
         self.menuBar.addAction(self.menuAFD.menuAction())
 
         self.retranslateUi(MainWindow)
+
+        self.isAFD = True
+        self.transition = {}
+        self.temTransicao = False
+
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def creatMenu(self):
@@ -93,11 +98,15 @@ class Ui_AFDScreen(object):
                 value = QTableWidgetItem(str(self.nfa.transitions[s][sy]))
                 self.tableWidget.setItem(linha, coluna, value)
 
-        # self.label.text(text)
+        self.isAFD = False
+        self.temTransicao = True
 
     def creatTable(self, states, symbols):
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
 
+        if self.tableWidget.isVisible():
+            self.resetTable()
+
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
         self.tableWidget.setColumnCount(len(symbols))
         self.tableWidget.setRowCount(len(states))
 
@@ -107,6 +116,7 @@ class Ui_AFDScreen(object):
         self.tableWidget.show()
 
     def c_current(self):
+
         states = sorted(self.states)
         symbols = sorted(self.symbols)
 
@@ -123,6 +133,7 @@ class Ui_AFDScreen(object):
 
         if len(self.transition) == len(states) and self.dictionary == {}:
             self.newField()
+
 
     def newField(self):
         _translate = QtCore.QCoreApplication.translate
@@ -141,24 +152,47 @@ class Ui_AFDScreen(object):
         self.btnOK.clicked.connect(self.run)
 
     def run(self):
+        if self.isAFD:
+            self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
 
-        self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
+            text = str(list(self.dfa.validate_input(self.strInput.text(), step=True)))
 
-        text = str(list(self.dfa.validate_input(self.strInput.text(), step=True)))
+            self.label.setText(text)
 
-        self.label.setText(text)
+            if self.label.text() != "":
+                self.creatMenu()
+        else:
+            self.isAFD = True
+            self.creatAFD()
+            self.run()
 
-        if self.label.text() != "":
-            self.creatMenu()
+    def creatAFD(self):
+        if self.lineEdit.text() != "":
+            self.dictionary = {}
 
-    def teste(self):
-        self.transition = {}
-        self.dictionary = {}
+            self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
 
-        self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
+            self.creatTable(sorted(self.states), sorted(self.symbols))
 
-        self.creatTable(sorted(self.states), sorted(self.symbols))
-        self.tableWidget.cellChanged.connect(self.c_current)
+            if self.temTransicao:
+                self.setTableValue(sorted(self.states), sorted(self.symbols))
+
+            self.tableWidget.cellChanged.connect(self.c_current)
+
+    def setTableValue(self, states, symbols):
+
+        self.tableWidget.setColumnCount(len(symbols))
+        self.tableWidget.setRowCount(len(states))
+
+        self.tableWidget.setHorizontalHeaderLabels(symbols)
+        self.tableWidget.setVerticalHeaderLabels(states)
+
+        for s in states:
+            for sy in symbols:
+                linha = states.index(s)
+                coluna = symbols.index(sy)
+                value = QTableWidgetItem(self.dfa.transitions[s][sy])
+                self.tableWidget.setItem(linha, coluna, value)
 
     def resetTable(self):
         self.tableWidget.clear()
@@ -169,16 +203,12 @@ class Ui_AFDScreen(object):
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
         self.tableWidget.setObjectName("tableWidget")
 
-        # self.tableWidget.setHorizontalHeaderLabels(symbols)
-        # self.tableWidget.setVerticalHeaderLabels(states)
-
         self.tableWidget.show()
-        # self.tableWidget.setDisabled(True)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
 
 
