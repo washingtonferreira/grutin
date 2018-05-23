@@ -134,7 +134,6 @@ class Ui_AFDScreen(object):
         if len(self.transition) == len(states) and self.dictionary == {}:
             self.newField()
 
-
     def newField(self):
         _translate = QtCore.QCoreApplication.translate
 

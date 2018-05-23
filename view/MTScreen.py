@@ -3,6 +3,7 @@ from automatos.MT import *
 
 
 class Ui_MTScreen(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(550, 235)
@@ -16,7 +17,7 @@ class Ui_MTScreen(object):
         self.tableWidget.setObjectName("tableWidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 150, 171, 16))
+        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
@@ -42,13 +43,28 @@ class Ui_MTScreen(object):
         self.t2 = {}
 
     def criar_tabela_transicao(self):
-        self.estados, self.alfabeto, self.simbolos_fita, self.estado_inicial, self.simbolo_branco, self.estados_finais \
-            = definicao_formal(self.lineEdit.text())
+        if self.lineEdit.text() != "":
+            self.estados, self.alfabeto, self.simbolos_fita, self.estado_inicial, self.simbolo_branco, self.estados_finais \
+                = definicao_formal(self.lineEdit.text())
 
-        self.monta_tabela(sorted(self.estados), sorted(self.simbolos_fita))
-        self.tableWidget.cellChanged.connect(self.c_current)
+            self.monta_tabela(sorted(self.estados), sorted(self.simbolos_fita))
+            self.tableWidget.cellChanged.connect(self.c_current)
+
+    def resetTable(self):
+        self.tableWidget.clear()
+        self.tableWidget.setDisabled(True)
+        self.tableWidget.setVisible(False)
+
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
+        self.tableWidget.setObjectName("tableWidget")
+
+        self.tableWidget.show()
 
     def monta_tabela(self, estados, simbolos_fita):
+        if self.tableWidget.isVisible():
+            self.resetTable()
+
         self.vertical_header_labels = self.coluna_estados(estados, simbolos_fita)
         horizontal_header_labels = ['Estados']
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
@@ -76,31 +92,27 @@ class Ui_MTScreen(object):
         value = self.tableWidget.item(row, col).text()
         value = value.replace('(', '').replace(')', '').replace(' ', '').split(',')
 
-        print(value)
+        if value != '':
+            value = tuple(value)
+            if value != ('',):
+                string = str(self.vertical_header_labels[row])
+                string = string.replace('(', '').replace(')', '').replace(' ', '').replace(':', '').split(',')
 
-        value = tuple(value)
+                estado_atual = string[0]
+                simb_fita_atual = string[1]
 
-        print(value)
-        if value != ('',):
-            string = str(self.vertical_header_labels[row])
-            string = string.replace('(', '').replace(')', '').replace(' ', '').replace(':', '').split(',')
-
-            estado_atual = string[0]
-            simb_fita_atual = string[1]
-
-            if self.funcao_transicao == {}:
-                self.funcao_transicao[estado_atual] = {simb_fita_atual: value}
-            else:
-                if estado_atual not in dict(self.funcao_transicao).keys():
+                if self.funcao_transicao == {}:
                     self.funcao_transicao[estado_atual] = {simb_fita_atual: value}
-                    print()
-                if simb_fita_atual not in dict(self.funcao_transicao[estado_atual]).keys():
+                else:
+                    if estado_atual not in dict(self.funcao_transicao).keys():
+                        self.funcao_transicao[estado_atual] = {simb_fita_atual: value}
+
+                    if simb_fita_atual not in dict(self.funcao_transicao[estado_atual]).keys():
+                        self.funcao_transicao[estado_atual][simb_fita_atual] = value
+
                     self.funcao_transicao[estado_atual][simb_fita_atual] = value
-                    print()
 
-                self.funcao_transicao[estado_atual][simb_fita_atual] = value
-
-            print(self.funcao_transicao)
+                    # print(self.funcao_transicao)
 
         self.newField()
 
@@ -121,12 +133,13 @@ class Ui_MTScreen(object):
         self.btnOK.clicked.connect(self.executa_maquina_turing)
 
     def executa_maquina_turing(self):
-        m_turing = cria_maq_turing(self.estados, self.alfabeto, self.simbolos_fita, self.funcao_transicao,
-                                   self.estado_inicial, self.simbolo_branco, self.estados_finais)
+        if self.strInput.text() != "":
+            m_turing = cria_maq_turing(self.estados, self.alfabeto, self.simbolos_fita, self.funcao_transicao,
+                                       self.estado_inicial, self.simbolo_branco, self.estados_finais)
 
-        transicao_criada = retorna_derivacao(m_turing, self.strInput.text())
-        print(transicao_criada)
-        self.label.setText(transicao_criada)
+            transicao_criada = retorna_derivacao(m_turing, self.strInput.text())
+            print(transicao_criada)
+            self.label.setText(transicao_criada)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
