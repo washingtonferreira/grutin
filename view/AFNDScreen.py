@@ -23,7 +23,7 @@ class Ui_AFNDScreen(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 160, 241, 16))
+        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
@@ -180,7 +180,7 @@ class Ui_AFNDScreen(object):
         self.btnOK.clicked.connect(self.run)
 
     def run(self):
-      if self.strInput.text() != "":
+        if self.strInput.text() != "":
             if self.isAFND:
                 self.nda = creatNFA(self.states, self.symbols, self.transition, self.initialState, self.finalStates)
 

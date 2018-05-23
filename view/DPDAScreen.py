@@ -11,6 +11,7 @@ from automatos.DPDA import *
 
 
 class Ui_DPDAScreen(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(550, 235)
@@ -24,7 +25,7 @@ class Ui_DPDAScreen(object):
         self.tableWidget.setObjectName("tableWidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 150, 171, 16))
+        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
@@ -35,7 +36,7 @@ class Ui_DPDAScreen(object):
         self.btn.setEnabled(True)
         self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
         self.btn.setObjectName("btn")
-        self.btn.clicked.connect(self.teste)
+        self.btn.clicked.connect(self.creatDPDA)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -50,7 +51,19 @@ class Ui_DPDAScreen(object):
         self.t1 = {}
         self.t2 = {}
 
+    def resetTable(self):
+        self.tableWidget.clear()
+        self.tableWidget.setDisabled(True)
+        self.tableWidget.setVisible(False)
+
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
+        self.tableWidget.setObjectName("tableWidget")
+
     def creatTable(self, states, symbols, symbolsStack):
+        if self.tableWidget.isVisible():
+            self.resetTable()
+
         self.verticalHeaderLabels = self.verticalSymbols(states, symbols, symbolsStack)
         # horizontalHeaderLabels = ['estado', 'pilha']
         horizontalHeaderLabels = ['estado']
@@ -90,9 +103,9 @@ class Ui_DPDAScreen(object):
         alphabet = string[1].replace(' ', '')
         stackSymble = string[2].replace(' ', '')
 
-        value = self.getTuple(value)
 
         if value != '':
+            value = self.getTuple(value)
             if self.transition == {}:
                 self.t1[stackSymble] = value
                 self.t2[alphabet] = self.t1
@@ -139,21 +152,22 @@ class Ui_DPDAScreen(object):
         self.btnOK.clicked.connect(self.run)
 
     def run(self):
+        if self.strInput.text() != "":
+            pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
+                            self.symbolsStackInitialself, self.finalStates)
 
-        pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
-                        self.symbolsStackInitialself, self.finalStates)
+            # print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
 
-        print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+            text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+            self.label.setText(text)
 
-        text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
-        self.label.setText(text)
+    def creatDPDA(self):
+        if self.lineEdit.text() != "":
+            self.states, self.symbols, self.symbolsStack, self.initialState, self.symbolsStackInitialself, \
+            self.finalStates = definicaoFormal(self.lineEdit.text())
 
-    def teste(self):
-        self.states, self.symbols, self.symbolsStack, self.initialState, self.symbolsStackInitialself, \
-        self.finalStates = definicaoFormal(self.lineEdit.text())
-
-        self.creatTable(sorted(self.states), sorted(self.symbols), sorted(self.symbolsStack))
-        self.tableWidget.cellChanged.connect(self.c_current)
+            self.creatTable(sorted(self.states), sorted(self.symbols), sorted(self.symbolsStack))
+            self.tableWidget.cellChanged.connect(self.c_current)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
