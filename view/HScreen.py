@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from view.AFDScreen import Ui_AFDScreen
 from view.AFNDScreen import Ui_AFNDScreen
 from view.DPDAScreen import Ui_DPDAScreen
@@ -145,7 +145,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Tela Principal"))
         self.label.setText(_translate("MainWindow", ""))
         self.menu_automatos.setTitle(_translate("MainWindow", "Autômatos"))
         self.menuAFD.setTitle(_translate("MainWindow", "AFD"))

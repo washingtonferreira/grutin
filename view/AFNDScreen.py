@@ -16,7 +16,7 @@ class Ui_AFNDScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(535, 234)
+        MainWindow.resize(730, 267)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -29,6 +29,7 @@ class Ui_AFNDScreen(object):
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(20, 40, 181, 20))
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setPlaceholderText("({q0, q1, q2}, {a,b}, d, {q0}, {q1})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
@@ -37,17 +38,23 @@ class Ui_AFNDScreen(object):
         self.btn.clicked.connect(self.creatAFND)
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(290, 20, 211, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(290, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
 
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
         self.strInput.setGeometry(QtCore.QRect(20, 120, 113, 20))
         self.strInput.setObjectName("strInput")
+        self.strInput.setPlaceholderText("String de entrada")
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
         self.btnOK.setGeometry(QtCore.QRect(150, 120, 75, 23))
         self.btnOK.setObjectName("btnOK")
         self.btnOK.clicked.connect(self.run)
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(630, 30, 91, 91))
+        self.label_2.setObjectName("label_2")
+        self.label_2.setVisible(False)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -115,22 +122,19 @@ class Ui_AFNDScreen(object):
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
         self.tableWidget.setObjectName("tableWidget")
 
-        # self.tableWidget.setHorizontalHeaderLabels(symbols)
-        # self.tableWidget.setVerticalHeaderLabels(states)
-
         self.tableWidget.show()
-        # self.tableWidget.setDisabled(True)
 
     def creatTable(self, states, symbols):
+        self.label_2.setVisible(True)
 
         if self.tableWidget.isVisible():
             self.resetTable()
 
         symbols.append('')
         symbols = sorted(symbols)
-        symbols[0] = 'vazio'
+        symbols[0] = 'ε'
 
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 324, 115))
+        self.tableWidget.setGeometry(QtCore.QRect(270, 20, 324, 115))
 
         self.tableWidget.setColumnCount(len(symbols))
         self.tableWidget.setRowCount(len(states))
@@ -237,10 +241,13 @@ class Ui_AFNDScreen(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Autômato Finito Não Deterministico"))
+        self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
         self.btnOK.setText(_translate("MainWindow", "Ok"))
+        self.label_2.setText(_translate("MainWindow",
+                                        "<html><head/><body><p>Taleba para inserir</p><p>a transição do</p><p>autômato"
+                                        " finitio</p><p>não deterministico</p></body></html>"))
 
 
 if __name__ == "__main__":

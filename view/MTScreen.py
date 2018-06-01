@@ -1,4 +1,6 @@
 from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWidgets import QHeaderView
+
 from automatos.MT import *
 
 
@@ -6,7 +8,7 @@ class Ui_MTScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(550, 235)
+        MainWindow.resize(550, 270)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -20,9 +22,15 @@ class Ui_MTScreen(object):
         self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(440, 30, 91, 138))
+        self.label_2.setObjectName("label_2")
+        self.label_2.setVisible(False)
+
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
         self.lineEdit.setObjectName("definicao_formal")
+        self.lineEdit.setPlaceholderText("({q0, q1, q2, q3, q4}, {0, 1}, {0, 1, x, y, .}, d , {q0}, {.}, {q4})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
@@ -62,18 +70,21 @@ class Ui_MTScreen(object):
         self.tableWidget.show()
 
     def monta_tabela(self, estados, simbolos_fita):
+        self.label_2.setVisible(True)
+
         if self.tableWidget.isVisible():
             self.resetTable()
 
         self.vertical_header_labels = self.coluna_estados(estados, simbolos_fita)
-        horizontal_header_labels = ['Estados']
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
+        horizontal_header_labels = ['(Estado, Simbolo, Fita)']
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 194, 151))
 
         self.tableWidget.setColumnCount(len(horizontal_header_labels))
         self.tableWidget.setRowCount(len(self.vertical_header_labels))
 
         self.tableWidget.setHorizontalHeaderLabels(horizontal_header_labels)
         self.tableWidget.setVerticalHeaderLabels(self.vertical_header_labels)
+        self.tableWidget.horizontalHeader().resizeSections(QHeaderView.ResizeToContents)
 
         self.tableWidget.show()
 
@@ -122,6 +133,7 @@ class Ui_MTScreen(object):
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
         self.strInput.setGeometry(QtCore.QRect(20, 110, 113, 20))
         self.strInput.setObjectName("strInput")
+        self.strInput.setPlaceholderText('String de entrada!')
         self.strInput.show()
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
@@ -143,17 +155,21 @@ class Ui_MTScreen(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Maquina de Turing"))
+        self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
+        self.label_2.setText(_translate("MainWindow",
+                                        '<html><head/><body><p>Taleba para inserir</p>'
+                                        '<p>a transição do</p>'
+                                        '<p>maquina de turing</p>'
+                                        '</body></html>'))
 
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MTScreen()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = Ui_MTScreen()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())

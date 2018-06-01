@@ -7,6 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWidgets import QHeaderView
+
 from automatos.DPDA import *
 
 
@@ -14,7 +16,7 @@ class Ui_DPDAScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(550, 235)
+        MainWindow.resize(600, 235)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -28,9 +30,15 @@ class Ui_DPDAScreen(object):
         self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
 
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(460, 30, 91, 138))
+        self.label_2.setObjectName("label_2")
+        self.label_2.setVisible(False)
+
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setPlaceholderText("({q0, q1, q2, q3}, {a, b}, {0, 1}, {q0}, {0}, {q3})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
@@ -61,19 +69,22 @@ class Ui_DPDAScreen(object):
         self.tableWidget.setObjectName("tableWidget")
 
     def creatTable(self, states, symbols, symbolsStack):
+        self.label_2.setVisible(True)
+
         if self.tableWidget.isVisible():
             self.resetTable()
 
         self.verticalHeaderLabels = self.verticalSymbols(states, symbols, symbolsStack)
         # horizontalHeaderLabels = ['estado', 'pilha']
-        horizontalHeaderLabels = ['estado']
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
+        horizontalHeaderLabels = ['(estado, leitura, pilha)']
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 202, 151))
 
         self.tableWidget.setColumnCount(len(horizontalHeaderLabels))
         self.tableWidget.setRowCount(len(self.verticalHeaderLabels))
 
         self.tableWidget.setHorizontalHeaderLabels(horizontalHeaderLabels)
         self.tableWidget.setVerticalHeaderLabels(self.verticalHeaderLabels)
+        self.tableWidget.horizontalHeader().resizeSections(QHeaderView.ResizeToContents)
 
         self.tableWidget.show()
 
@@ -141,6 +152,7 @@ class Ui_DPDAScreen(object):
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
         self.strInput.setGeometry(QtCore.QRect(20, 110, 113, 20))
         self.strInput.setObjectName("strInput")
+        self.strInput.setPlaceholderText("String de entrada!")
         self.strInput.show()
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
@@ -171,10 +183,16 @@ class Ui_DPDAScreen(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Autômato Com Pilha"))
+        self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
-
+        self.label_2.setText(_translate("MainWindow",
+                                        "<html><head/><body><p>Taleba para inserir</p>"
+                                        "<p>a transição do</p>"
+                                        "<p>autômato de pilha</p>"
+                                        "<p>(q1, 1, 0)</p>"
+                                        "<p>(q1, 1,)</p>"
+                                        "<p>(q1, )</p>""</body></html>"))
 
 # if __name__ == "__main__":
 #     import sys

@@ -4,6 +4,9 @@
     <list default="true" id="d1c1276b-9540-4c7a-be0a-95837998870a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/AFDScreen.py" afterPath="$PROJECT_DIR$/view/AFDScreen.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/AFNDScreen.py" afterPath="$PROJECT_DIR$/view/AFNDScreen.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/DPDAScreen.py" afterPath="$PROJECT_DIR$/view/DPDAScreen.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/HScreen.py" afterPath="$PROJECT_DIR$/view/HScreen.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/MTScreen.py" afterPath="$PROJECT_DIR$/view/MTScreen.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,35 +18,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AFDScreen.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/AFDScreen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="e#191#226#0" expanded="true" />
-                <element signature="e#2476#2697#0" expanded="false" />
-                <element signature="e#2736#3623#0" expanded="false" />
-                <element signature="e#3677#4065#0" expanded="false" />
-                <element signature="e#4101#4627#0" expanded="false" />
-                <element signature="e#4661#5215#0" expanded="false" />
-                <element signature="e#5244#5666#0" expanded="false" />
-                <element signature="e#5700#6130#0" expanded="false" />
-                <element signature="e#6187#6673#0" expanded="false" />
-                <element signature="e#6709#7047#0" expanded="false" />
-                <element signature="e#7098#7335#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/HScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="83" column="63" lean-forward="false" selection-start-line="83" selection-start-column="63" selection-end-line="83" selection-end-column="63" />
+            <state relative-caret-position="171">
+              <caret line="147" column="74" lean-forward="false" selection-start-line="147" selection-start-column="74" selection-end-line="147" selection-end-column="74" />
               <folding>
-                <element signature="e#196#238#0" expanded="true" />
+                <element signature="e#196#231#0" expanded="true" />
+                <element signature="e#1163#4678#0" expanded="false" />
+                <element signature="e#4896#5180#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -52,16 +35,32 @@
       <file leaf-file-name="MTScreen.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/MTScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="103">
+              <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
               <folding>
-                <element signature="e#1599#1957#0" expanded="false" />
-                <element signature="e#1993#2331#0" expanded="false" />
-                <element signature="e#2393#2987#0" expanded="false" />
-                <element signature="e#3051#3261#0" expanded="false" />
-                <element signature="e#3296#4527#0" expanded="false" />
-                <element signature="e#4561#5134#0" expanded="false" />
-                <element signature="e#5182#5592#0" expanded="false" />
+                <element signature="e#1964#2322#0" expanded="false" />
+                <element signature="e#2358#2696#0" expanded="false" />
+                <element signature="e#3560#3770#0" expanded="false" />
+                <element signature="e#3805#5036#0" expanded="false" />
+                <element signature="e#5754#6164#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DPDAScreen.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="195" column="0" lean-forward="true" selection-start-line="188" selection-start-column="8" selection-end-line="195" selection-end-column="0" />
+              <folding>
+                <element signature="e#2132#2437#0" expanded="false" />
+                <element signature="e#3373#3600#0" expanded="false" />
+                <element signature="e#3636#4835#0" expanded="false" />
+                <element signature="e#4876#5083#0" expanded="false" />
+                <element signature="e#5117#5734#0" expanded="false" />
+                <element signature="e#5763#6255#0" expanded="false" />
+                <element signature="e#6290#6662#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -79,6 +78,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>main</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,12 +93,12 @@
         <option value="$PROJECT_DIR$/view/Main.py" />
         <option value="$PROJECT_DIR$/view/Teste.py" />
         <option value="$PROJECT_DIR$/automatos/MT.py" />
-        <option value="$PROJECT_DIR$/view/HScreen.py" />
         <option value="$PROJECT_DIR$/automatos/DFA.py" />
         <option value="$PROJECT_DIR$/automatos/NFA.py" />
+        <option value="$PROJECT_DIR$/view/AFDScreen.py" />
         <option value="$PROJECT_DIR$/view/AFNDScreen.py" />
         <option value="$PROJECT_DIR$/view/DPDAScreen.py" />
-        <option value="$PROJECT_DIR$/view/AFDScreen.py" />
+        <option value="$PROJECT_DIR$/view/HScreen.py" />
         <option value="$PROJECT_DIR$/view/MTScreen.py" />
       </list>
     </option>
@@ -124,7 +124,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -146,6 +145,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -293,13 +293,12 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15808824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15073529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5058824" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -311,6 +310,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -340,7 +340,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -356,15 +356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2380">
           <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
-          <folding>
-            <element signature="e#191#226#0" expanded="true" />
-            <element signature="e#331#1748#0" expanded="false" />
-            <element signature="e#1784#2089#0" expanded="false" />
-            <element signature="e#2156#2800#0" expanded="false" />
-            <element signature="e#2879#3106#0" expanded="false" />
-            <element signature="e#3142#4341#0" expanded="false" />
-            <element signature="e#4382#4589#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -386,16 +377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding>
-            <element signature="e#2873#3748#0" expanded="false" />
-            <element signature="e#3784#4289#0" expanded="false" />
-            <element signature="e#4343#4823#0" expanded="false" />
-            <element signature="e#4858#5599#0" expanded="false" />
-            <element signature="e#5633#6187#0" expanded="false" />
-            <element signature="e#7249#8038#0" expanded="false" />
-            <element signature="e#8073#8277#0" expanded="false" />
-            <element signature="e#8328#8633#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -404,7 +385,9 @@
         <state relative-caret-position="782">
           <caret line="49" column="57" lean-forward="true" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#196#231#0" expanded="true" />
+            <element signature="e#1163#4678#0" expanded="false" />
+            <element signature="e#4896#5180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -435,16 +418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding>
-            <element signature="e#2873#3748#0" expanded="false" />
-            <element signature="e#3784#4289#0" expanded="false" />
-            <element signature="e#4343#4823#0" expanded="false" />
-            <element signature="e#4858#5599#0" expanded="false" />
-            <element signature="e#5633#6187#0" expanded="false" />
-            <element signature="e#7249#8038#0" expanded="false" />
-            <element signature="e#8073#8277#0" expanded="false" />
-            <element signature="e#8328#8633#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -453,7 +426,9 @@
         <state relative-caret-position="1241">
           <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#196#231#0" expanded="true" />
+            <element signature="e#1163#4678#0" expanded="false" />
+            <element signature="e#4896#5180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -490,16 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding>
-            <element signature="e#2873#3748#0" expanded="false" />
-            <element signature="e#3784#4289#0" expanded="false" />
-            <element signature="e#4343#4823#0" expanded="false" />
-            <element signature="e#4858#5599#0" expanded="false" />
-            <element signature="e#5633#6187#0" expanded="false" />
-            <element signature="e#7249#8038#0" expanded="false" />
-            <element signature="e#8073#8277#0" expanded="false" />
-            <element signature="e#8328#8633#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -508,7 +473,9 @@
         <state relative-caret-position="1241">
           <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#196#231#0" expanded="true" />
+            <element signature="e#1163#4678#0" expanded="false" />
+            <element signature="e#4896#5180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,87 +619,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/AFDScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="125" column="36" lean-forward="false" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
           <folding>
-            <element signature="e#0#9#0" expanded="false" />
+            <element signature="e#191#226#0" expanded="false" />
+            <element signature="e#2851#3072#0" expanded="false" />
+            <element signature="e#3111#3998#0" expanded="false" />
+            <element signature="e#4522#5048#0" expanded="false" />
+            <element signature="e#5082#5699#0" expanded="false" />
+            <element signature="e#5728#6150#0" expanded="false" />
+            <element signature="e#6184#6614#0" expanded="false" />
+            <element signature="e#6671#7157#0" expanded="false" />
+            <element signature="e#7193#7531#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/AFNDScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="197" column="8" lean-forward="false" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="8" />
+        <state relative-caret-position="341">
+          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
-            <element signature="e#2873#3748#0" expanded="false" />
-            <element signature="e#3784#4289#0" expanded="false" />
-            <element signature="e#4343#4823#0" expanded="false" />
-            <element signature="e#4858#5599#0" expanded="false" />
-            <element signature="e#5633#6187#0" expanded="false" />
-            <element signature="e#7249#8038#0" expanded="false" />
-            <element signature="e#8073#8277#0" expanded="false" />
-            <element signature="e#8328#8633#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="161" column="36" lean-forward="false" selection-start-line="155" selection-start-column="42" selection-end-line="161" selection-end-column="36" />
-          <folding>
-            <element signature="e#191#226#0" expanded="true" />
-            <element signature="e#331#1748#0" expanded="false" />
-            <element signature="e#1784#2089#0" expanded="false" />
-            <element signature="e#2156#2800#0" expanded="false" />
-            <element signature="e#2879#3106#0" expanded="false" />
-            <element signature="e#3142#4341#0" expanded="false" />
-            <element signature="e#4382#4589#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/AFDScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="e#191#226#0" expanded="true" />
-            <element signature="e#2476#2697#0" expanded="false" />
-            <element signature="e#2736#3623#0" expanded="false" />
-            <element signature="e#3677#4065#0" expanded="false" />
-            <element signature="e#4101#4627#0" expanded="false" />
-            <element signature="e#4661#5215#0" expanded="false" />
-            <element signature="e#5244#5666#0" expanded="false" />
-            <element signature="e#5700#6130#0" expanded="false" />
-            <element signature="e#6187#6673#0" expanded="false" />
-            <element signature="e#6709#7047#0" expanded="false" />
-            <element signature="e#7098#7335#0" expanded="false" />
+            <element signature="e#376#3184#0" expanded="false" />
+            <element signature="e#3222#4097#0" expanded="false" />
+            <element signature="e#4133#4471#0" expanded="false" />
+            <element signature="e#5074#5815#0" expanded="false" />
+            <element signature="e#5849#6403#0" expanded="false" />
+            <element signature="e#6432#6945#0" expanded="false" />
+            <element signature="e#6980#7409#0" expanded="false" />
+            <element signature="e#7465#8254#0" expanded="false" />
+            <element signature="e#8289#8493#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/HScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="83" column="63" lean-forward="false" selection-start-line="83" selection-start-column="63" selection-end-line="83" selection-end-column="63" />
+        <state relative-caret-position="171">
+          <caret line="147" column="74" lean-forward="false" selection-start-line="147" selection-start-column="74" selection-end-line="147" selection-end-column="74" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#196#231#0" expanded="true" />
+            <element signature="e#1163#4678#0" expanded="false" />
+            <element signature="e#4896#5180#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="195" column="0" lean-forward="true" selection-start-line="188" selection-start-column="8" selection-end-line="195" selection-end-column="0" />
+          <folding>
+            <element signature="e#2132#2437#0" expanded="false" />
+            <element signature="e#3373#3600#0" expanded="false" />
+            <element signature="e#3636#4835#0" expanded="false" />
+            <element signature="e#4876#5083#0" expanded="false" />
+            <element signature="e#5117#5734#0" expanded="false" />
+            <element signature="e#5763#6255#0" expanded="false" />
+            <element signature="e#6290#6662#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/MTScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="103">
+          <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
           <folding>
-            <element signature="e#1599#1957#0" expanded="false" />
-            <element signature="e#1993#2331#0" expanded="false" />
-            <element signature="e#2393#2987#0" expanded="false" />
-            <element signature="e#3051#3261#0" expanded="false" />
-            <element signature="e#3296#4527#0" expanded="false" />
-            <element signature="e#4561#5134#0" expanded="false" />
-            <element signature="e#5182#5592#0" expanded="false" />
+            <element signature="e#1964#2322#0" expanded="false" />
+            <element signature="e#2358#2696#0" expanded="false" />
+            <element signature="e#3560#3770#0" expanded="false" />
+            <element signature="e#3805#5036#0" expanded="false" />
+            <element signature="e#5754#6164#0" expanded="false" />
           </folding>
         </state>
       </provider>
