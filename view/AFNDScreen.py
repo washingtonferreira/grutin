@@ -13,7 +13,6 @@ from automatos.NFA import *
 
 
 class Ui_AFNDScreen(object):
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(730, 267)
@@ -185,31 +184,41 @@ class Ui_AFNDScreen(object):
 
     def run(self):
         if self.strInput.text() != "":
-            if self.isAFND:
-                self.nda = creatNFA(self.states, self.symbols, self.transition, self.initialState, self.finalStates)
+            try:
+                if self.isAFND:
+                    self.nda = creatNFA(self.states, self.symbols, self.transition, self.initialState, self.finalStates)
 
-                text = str(list(self.nda.validate_input(self.strInput.text(), step=True)))
+                    text = str(list(self.nda.validate_input(self.strInput.text(), step=True)))
 
-                self.label.setText('{}'.format(text))
+                    self.label.setText('{}'.format(text))
 
-                if self.strInput != "":
-                    self.creatMenu()
-            else:
-                self.isAFND = True
-                self.creatAFND()
-                self.run()
+                    if self.strInput != "":
+                        self.creatMenu()
+
+            except Exception:
+                self.label.setText('String invalida')
+
+        else:
+            self.isAFND = True
+            self.creatAFND()
+            self.run()
 
     def creatAFND(self):
         if self.lineEdit.text() != "":
             self.dictionary = {}
 
-            self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
-            self.creatTable(sorted(self.states), sorted(self.symbols))
+            try:
+                self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
+                self.creatTable(sorted(self.states), sorted(self.symbols))
 
-            if self.temTransicao:
-                self.setTableValue(sorted(self.states), sorted(self.symbols))
+                if self.temTransicao:
+                    self.setTableValue(sorted(self.states), sorted(self.symbols))
 
-            self.tableWidget.cellChanged.connect(self.c_current)
+                self.tableWidget.cellChanged.connect(self.c_current)
+                self.label.setText('')
+
+            except Exception:
+                self.label.setText('Erro na inserção da definição formal')
 
     def setTableValue(self, states, symbols):
         symbols.append('')

@@ -52,11 +52,16 @@ class Ui_MTScreen(object):
 
     def criar_tabela_transicao(self):
         if self.lineEdit.text() != "":
-            self.estados, self.alfabeto, self.simbolos_fita, self.estado_inicial, self.simbolo_branco, self.estados_finais \
-                = definicao_formal(self.lineEdit.text())
 
-            self.monta_tabela(sorted(self.estados), sorted(self.simbolos_fita))
-            self.tableWidget.cellChanged.connect(self.c_current)
+            try:
+                self.estados, self.alfabeto, self.simbolos_fita, self.estado_inicial, self.simbolo_branco, self.estados_finais \
+                    = definicao_formal(self.lineEdit.text())
+
+                self.monta_tabela(sorted(self.estados), sorted(self.simbolos_fita))
+                self.tableWidget.cellChanged.connect(self.c_current)
+                self.label.setText('')
+            except Exception:
+                self.label.setText('Erro na inserção da definição formal')
 
     def resetTable(self):
         self.tableWidget.clear()
@@ -146,12 +151,16 @@ class Ui_MTScreen(object):
 
     def executa_maquina_turing(self):
         if self.strInput.text() != "":
-            m_turing = cria_maq_turing(self.estados, self.alfabeto, self.simbolos_fita, self.funcao_transicao,
-                                       self.estado_inicial, self.simbolo_branco, self.estados_finais)
+            try:
 
-            transicao_criada = retorna_derivacao(m_turing, self.strInput.text())
-            print(transicao_criada)
-            self.label.setText(transicao_criada)
+                m_turing = cria_maq_turing(self.estados, self.alfabeto, self.simbolos_fita, self.funcao_transicao,
+                                           self.estado_inicial, self.simbolo_branco, self.estados_finais)
+
+                transicao_criada = retorna_derivacao(m_turing, self.strInput.text())
+                print(transicao_criada)
+                self.label.setText(transicao_criada)
+            except Exception:
+                self.label.setText('String invalida')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

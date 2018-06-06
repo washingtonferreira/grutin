@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 
 from automatos.DFA import *
 
@@ -163,14 +163,19 @@ class Ui_AFDScreen(object):
 
     def run(self):
         if self.isAFD:
-            self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
+            try:
+                self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
 
-            text = str(list(self.dfa.validate_input(self.strInput.text(), step=True)))
+                text = str(list(self.dfa.validate_input(self.strInput.text(), step=True)))
 
-            self.label.setText(text)
+                self.label.setText(text)
 
-            if self.label.text() != "":
-                self.creatMenu()
+                if self.label.text() != "":
+                    self.creatMenu()
+
+            except Exception:
+                self.label.setText('String invalida')
+
         else:
             self.isAFD = True
             self.creatAFD()
@@ -180,14 +185,19 @@ class Ui_AFDScreen(object):
         if self.lineEdit.text() != "":
             self.dictionary = {}
 
-            self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
+            try:
+                self.states, self.symbols, self.initialState, self.finalStates = definicaoFormal(self.lineEdit.text())
 
-            self.creatTable(sorted(self.states), sorted(self.symbols))
+                self.creatTable(sorted(self.states), sorted(self.symbols))
 
-            if self.temTransicao:
-                self.setTableValue(sorted(self.states), sorted(self.symbols))
+                if self.temTransicao:
+                    self.setTableValue(sorted(self.states), sorted(self.symbols))
 
-            self.tableWidget.cellChanged.connect(self.c_current)
+                self.tableWidget.cellChanged.connect(self.c_current)
+                self.label.setText('')
+
+            except Exception:
+                self.label.setText('Erro na inserção da definição formal')
 
     def setTableValue(self, states, symbols):
 

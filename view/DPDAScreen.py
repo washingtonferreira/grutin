@@ -165,21 +165,32 @@ class Ui_DPDAScreen(object):
 
     def run(self):
         if self.strInput.text() != "":
-            pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
-                            self.symbolsStackInitialself, self.finalStates)
+            try:
+                pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
+                                self.symbolsStackInitialself, self.finalStates)
 
-            # print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+                # print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
 
-            text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
-            self.label.setText(text)
+                text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+                self.label.setText(text)
+            except Exception:
+                self.label.setText('String invalida')
+
 
     def creatDPDA(self):
         if self.lineEdit.text() != "":
-            self.states, self.symbols, self.symbolsStack, self.initialState, self.symbolsStackInitialself, \
-            self.finalStates = definicaoFormal(self.lineEdit.text())
 
-            self.creatTable(sorted(self.states), sorted(self.symbols), sorted(self.symbolsStack))
-            self.tableWidget.cellChanged.connect(self.c_current)
+            try:
+                self.states, self.symbols, self.symbolsStack, self.initialState, self.symbolsStackInitialself, \
+                self.finalStates = definicaoFormal(self.lineEdit.text())
+
+                self.creatTable(sorted(self.states), sorted(self.symbols), sorted(self.symbolsStack))
+                self.tableWidget.cellChanged.connect(self.c_current)
+
+                self.label.setText('')
+
+            except Exception:
+                self.label.setText('Erro na inserção da definição formal')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
