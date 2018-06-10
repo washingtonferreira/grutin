@@ -16,11 +16,15 @@ class Ui_AFDScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(569, 267)
+        MainWindow.resize(580, 380)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setObjectName("label_3")
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(250, 20, 0, 0))
@@ -29,7 +33,7 @@ class Ui_AFDScreen(object):
         self.tableWidget.setRowCount(0)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
+        self.label.setGeometry(QtCore.QRect(20, 180, 491, 150))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
@@ -165,9 +169,7 @@ class Ui_AFDScreen(object):
         if self.isAFD:
             try:
                 self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
-
-                text = str(list(self.dfa.validate_input(self.strInput.text(), step=True)))
-
+                text = retornaNormaPadrao(self.dfa, self.strInput.text())
                 self.label.setText(text)
 
                 if self.label.text() != "":
@@ -197,7 +199,7 @@ class Ui_AFDScreen(object):
                 self.label.setText('')
 
             except Exception:
-                self.label.setText('Erro na inserção da definição formal')
+                self.mensagemDeErro()
 
     def setTableValue(self, states, symbols):
 
@@ -233,6 +235,10 @@ class Ui_AFDScreen(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Automato Finito Deterministico"))
         self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
+        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2}, {0,1}, d, {q0}, {q1})"))
+
+    def mensagemDeErro(self):
+        self.label.setText('Erro na inserção da definição formal')
 
 
 if __name__ == "__main__":

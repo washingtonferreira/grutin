@@ -31,3 +31,27 @@ def creatDFA(states, symbols, initialState, finalStates, transition):
 
 def showDFA(dfa, string):
     return list(dfa.validate_input(string, step=True))
+
+def retornaNormaPadrao(dfa, inputStr):
+    estadoI = dfa.initial_state
+    transicao = dfa.transitions
+
+    norma1 = '({}, {}) => {}'
+    norma2 = '({}, ({}), {})'
+
+    lista = list(dfa.validate_input(inputStr, step=True))
+    lista.remove(lista[0])
+    lista.reverse()
+    strSaida = ''
+    cutCount = 1
+
+    for e in lista:
+        inputAux = inputStr[-cutCount:]
+        estadoAtual = transicao[e][inputAux]
+
+        subNorma = norma2.format(e, inputStr[:-cutCount], inputAux, estadoAtual)
+
+        strSaida += norma1.format(estadoI, subNorma, e) + '\n'
+        inputStr = inputStr[:-cutCount]
+
+    return strSaida

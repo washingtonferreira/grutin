@@ -22,6 +22,10 @@ class Ui_DPDAScreen(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setObjectName("label_3")
+
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
@@ -176,7 +180,6 @@ class Ui_DPDAScreen(object):
             except Exception:
                 self.label.setText('String invalida')
 
-
     def creatDPDA(self):
         if self.lineEdit.text() != "":
 
@@ -204,6 +207,7 @@ class Ui_DPDAScreen(object):
                                         "<p>(q1, 1, 0)</p>"
                                         "<p>(q1, 1,)</p>"
                                         "<p>(q1, )</p>""</body></html>"))
+        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2, q3}, {a, b}, {0, 1}, {q0}, {0}, {q3})"))
 
 # if __name__ == "__main__":
 #     import sys

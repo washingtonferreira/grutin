@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d1c1276b-9540-4c7a-be0a-95837998870a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/automatos/DFA.py" afterPath="$PROJECT_DIR$/automatos/DFA.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/automatos/DPDA.py" afterPath="$PROJECT_DIR$/automatos/DPDA.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/AFDScreen.py" afterPath="$PROJECT_DIR$/view/AFDScreen.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/AFNDScreen.py" afterPath="$PROJECT_DIR$/view/AFNDScreen.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/DPDAScreen.py" afterPath="$PROJECT_DIR$/view/DPDAScreen.py" />
@@ -16,46 +18,43 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HScreen.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/HScreen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="33" selection-end-column="0" />
-              <folding>
-                <element signature="e#196#231#0" expanded="true" />
-                <element signature="e#1163#4678#0" expanded="false" />
-                <element signature="e#4896#5180#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file leaf-file-name="AFDScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/AFDScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
-                <element signature="e#6989#7475#0" expanded="false" />
-                <element signature="e#7511#7849#0" expanded="false" />
-                <element signature="e#7900#8423#0" expanded="false" />
+                <element signature="e#191#226#0" expanded="true" />
+                <element signature="e#3035#3256#0" expanded="false" />
+                <element signature="e#3295#4182#0" expanded="false" />
+                <element signature="e#4236#4670#0" expanded="false" />
+                <element signature="e#4706#5232#0" expanded="false" />
+                <element signature="e#5266#5883#0" expanded="false" />
+                <element signature="e#5912#6438#0" expanded="false" />
+                <element signature="e#7104#7590#0" expanded="false" />
+                <element signature="e#7626#7964#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AFNDScreen.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AFNDScreen.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/AFNDScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
+            <state relative-caret-position="324">
+              <caret line="273" column="27" lean-forward="false" selection-start-line="265" selection-start-column="28" selection-end-line="273" selection-end-column="27" />
               <folding>
-                <element signature="e#3221#4096#0" expanded="false" />
-                <element signature="e#4132#4470#0" expanded="false" />
-                <element signature="e#4523#5038#0" expanded="false" />
-                <element signature="e#5073#5814#0" expanded="false" />
-                <element signature="e#5848#6402#0" expanded="false" />
+                <element signature="e#375#3353#0" expanded="false" />
+                <element signature="e#3391#4266#0" expanded="false" />
+                <element signature="e#4302#4640#0" expanded="false" />
+                <element signature="e#4693#5208#0" expanded="false" />
+                <element signature="e#5243#5984#0" expanded="false" />
+                <element signature="e#6018#6572#0" expanded="false" />
+                <element signature="e#6601#7225#0" expanded="false" />
+                <element signature="e#7260#7871#0" expanded="false" />
+                <element signature="e#7927#8716#0" expanded="false" />
+                <element signature="e#8751#8955#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,14 +63,17 @@
       <file leaf-file-name="DPDAScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="177" column="0" lean-forward="true" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+            <state relative-caret-position="86">
+              <caret line="209" column="106" lean-forward="false" selection-start-line="209" selection-start-column="106" selection-end-line="209" selection-end-column="106" />
               <folding>
-                <element signature="e#2132#2437#0" expanded="false" />
-                <element signature="e#3373#3600#0" expanded="false" />
-                <element signature="e#3636#4835#0" expanded="false" />
-                <element signature="e#4876#5083#0" expanded="false" />
-                <element signature="e#5117#5734#0" expanded="false" />
+                <element signature="e#2302#2607#0" expanded="false" />
+                <element signature="e#2674#3464#0" expanded="false" />
+                <element signature="e#3543#3770#0" expanded="false" />
+                <element signature="e#3806#5005#0" expanded="false" />
+                <element signature="e#5046#5253#0" expanded="false" />
+                <element signature="e#5287#5904#0" expanded="false" />
+                <element signature="e#5933#6546#0" expanded="false" />
+                <element signature="e#6581#7133#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,26 +82,18 @@
       <file leaf-file-name="MTScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/MTScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+            <state relative-caret-position="307">
+              <caret line="179" column="55" lean-forward="false" selection-start-line="179" selection-start-column="55" selection-end-line="179" selection-end-column="55" />
               <folding>
-                <element signature="e#177#1916#0" expanded="false" />
-                <element signature="e#2536#2874#0" expanded="false" />
-                <element signature="e#2936#3674#0" expanded="false" />
-                <element signature="e#3738#3948#0" expanded="false" />
-                <element signature="e#3983#5214#0" expanded="false" />
-                <element signature="e#5248#5884#0" expanded="false" />
+                <element signature="e#177#2086#0" expanded="false" />
+                <element signature="e#2134#2670#0" expanded="false" />
+                <element signature="e#2706#3044#0" expanded="false" />
+                <element signature="e#3106#3844#0" expanded="false" />
+                <element signature="e#3908#4118#0" expanded="false" />
+                <element signature="e#4153#5384#0" expanded="false" />
+                <element signature="e#5418#6054#0" expanded="false" />
+                <element signature="e#6102#6634#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DPDA.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/automatos/DPDA.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -127,17 +121,17 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/view/HomeScreen.py" />
-        <option value="$PROJECT_DIR$/automatos/DPDA.py" />
         <option value="$PROJECT_DIR$/view/Main.py" />
         <option value="$PROJECT_DIR$/view/Teste.py" />
         <option value="$PROJECT_DIR$/automatos/MT.py" />
-        <option value="$PROJECT_DIR$/automatos/DFA.py" />
         <option value="$PROJECT_DIR$/automatos/NFA.py" />
         <option value="$PROJECT_DIR$/view/HScreen.py" />
+        <option value="$PROJECT_DIR$/automatos/DPDA.py" />
+        <option value="$PROJECT_DIR$/automatos/DFA.py" />
         <option value="$PROJECT_DIR$/view/AFDScreen.py" />
-        <option value="$PROJECT_DIR$/view/AFNDScreen.py" />
-        <option value="$PROJECT_DIR$/view/DPDAScreen.py" />
         <option value="$PROJECT_DIR$/view/MTScreen.py" />
+        <option value="$PROJECT_DIR$/view/DPDAScreen.py" />
+        <option value="$PROJECT_DIR$/view/AFNDScreen.py" />
       </list>
     </option>
   </component>
@@ -162,7 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,11 +178,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Grutin1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -331,14 +325,14 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15073529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13970588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5058824" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29635498" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -360,9 +354,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16176471" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.49411765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29635498" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13970588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -378,25 +372,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/automatos/NFAtoDFA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python/Python35/Lib/site-packages/automata/fa/dfa.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
@@ -422,11 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="49" column="57" lean-forward="true" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-          <folding>
-            <element signature="e#196#231#0" expanded="true" />
-            <element signature="e#1163#4678#0" expanded="false" />
-            <element signature="e#4896#5180#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -463,11 +438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#196#231#0" expanded="true" />
-            <element signature="e#1163#4678#0" expanded="false" />
-            <element signature="e#4896#5180#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -510,11 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#196#231#0" expanded="true" />
-            <element signature="e#1163#4678#0" expanded="false" />
-            <element signature="e#4896#5180#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/automatos/DFA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/automatos/NFA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -655,76 +613,108 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/HScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#196#231#0" expanded="true" />
-            <element signature="e#1163#4678#0" expanded="false" />
-            <element signature="e#4896#5180#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="493">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automatos/cfg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automatos/GLCScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automatos/DPDA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="32" column="49" lean-forward="true" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automatos/DFA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/AFDScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#6989#7475#0" expanded="false" />
-            <element signature="e#7511#7849#0" expanded="false" />
-            <element signature="e#7900#8423#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/AFNDScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
-          <folding>
-            <element signature="e#3221#4096#0" expanded="false" />
-            <element signature="e#4132#4470#0" expanded="false" />
-            <element signature="e#4523#5038#0" expanded="false" />
-            <element signature="e#5073#5814#0" expanded="false" />
-            <element signature="e#5848#6402#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="177" column="0" lean-forward="true" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
-          <folding>
-            <element signature="e#2132#2437#0" expanded="false" />
-            <element signature="e#3373#3600#0" expanded="false" />
-            <element signature="e#3636#4835#0" expanded="false" />
-            <element signature="e#4876#5083#0" expanded="false" />
-            <element signature="e#5117#5734#0" expanded="false" />
+            <element signature="e#191#226#0" expanded="true" />
+            <element signature="e#3035#3256#0" expanded="false" />
+            <element signature="e#3295#4182#0" expanded="false" />
+            <element signature="e#4236#4670#0" expanded="false" />
+            <element signature="e#4706#5232#0" expanded="false" />
+            <element signature="e#5266#5883#0" expanded="false" />
+            <element signature="e#5912#6438#0" expanded="false" />
+            <element signature="e#7104#7590#0" expanded="false" />
+            <element signature="e#7626#7964#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/MTScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+        <state relative-caret-position="307">
+          <caret line="179" column="55" lean-forward="false" selection-start-line="179" selection-start-column="55" selection-end-line="179" selection-end-column="55" />
           <folding>
-            <element signature="e#177#1916#0" expanded="false" />
-            <element signature="e#2536#2874#0" expanded="false" />
-            <element signature="e#2936#3674#0" expanded="false" />
-            <element signature="e#3738#3948#0" expanded="false" />
-            <element signature="e#3983#5214#0" expanded="false" />
-            <element signature="e#5248#5884#0" expanded="false" />
+            <element signature="e#177#2086#0" expanded="false" />
+            <element signature="e#2134#2670#0" expanded="false" />
+            <element signature="e#2706#3044#0" expanded="false" />
+            <element signature="e#3106#3844#0" expanded="false" />
+            <element signature="e#3908#4118#0" expanded="false" />
+            <element signature="e#4153#5384#0" expanded="false" />
+            <element signature="e#5418#6054#0" expanded="false" />
+            <element signature="e#6102#6634#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/automatos/DPDA.py">
+    <entry file="file://$PROJECT_DIR$/view/DPDAScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="86">
+          <caret line="209" column="106" lean-forward="false" selection-start-line="209" selection-start-column="106" selection-end-line="209" selection-end-column="106" />
+          <folding>
+            <element signature="e#2302#2607#0" expanded="false" />
+            <element signature="e#2674#3464#0" expanded="false" />
+            <element signature="e#3543#3770#0" expanded="false" />
+            <element signature="e#3806#5005#0" expanded="false" />
+            <element signature="e#5046#5253#0" expanded="false" />
+            <element signature="e#5287#5904#0" expanded="false" />
+            <element signature="e#5933#6546#0" expanded="false" />
+            <element signature="e#6581#7133#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/AFNDScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="273" column="27" lean-forward="false" selection-start-line="265" selection-start-column="28" selection-end-line="273" selection-end-column="27" />
+          <folding>
+            <element signature="e#375#3353#0" expanded="false" />
+            <element signature="e#3391#4266#0" expanded="false" />
+            <element signature="e#4302#4640#0" expanded="false" />
+            <element signature="e#4693#5208#0" expanded="false" />
+            <element signature="e#5243#5984#0" expanded="false" />
+            <element signature="e#6018#6572#0" expanded="false" />
+            <element signature="e#6601#7225#0" expanded="false" />
+            <element signature="e#7260#7871#0" expanded="false" />
+            <element signature="e#7927#8716#0" expanded="false" />
+            <element signature="e#8751#8955#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

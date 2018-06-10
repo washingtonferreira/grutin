@@ -14,6 +14,10 @@ class Ui_MTScreen(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setObjectName("label_3")
+
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
@@ -172,6 +176,8 @@ class Ui_MTScreen(object):
                                         '<p>a transição do</p>'
                                         '<p>maquina de turing</p>'
                                         '</body></html>'))
+        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2, q3, q4}, {0, 1}, {0, 1, x, y, .}, d , {q0}, {.}, "
+                                                      "{q4})"))
 
 # if __name__ == "__main__":
 #     import sys

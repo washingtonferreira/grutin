@@ -32,7 +32,7 @@ def creatDPDA(states, alphabet, alphabetStack, transition, initialState, symbols
         initial_state=initialState,
         initial_stack_symbol=symbolsStackInitial,
         final_states=set(finalStates)
-)
+        )
 
 
 def returnAutomatos(dpda, cadeia):

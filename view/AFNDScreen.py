@@ -21,6 +21,10 @@ class Ui_AFNDScreen(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setObjectName("label_3")
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
         self.label.setObjectName("label")
@@ -257,14 +261,14 @@ class Ui_AFNDScreen(object):
         self.label_2.setText(_translate("MainWindow",
                                         "<html><head/><body><p>Taleba para inserir</p><p>a transição do</p><p>autômato"
                                         " finitio</p><p>não deterministico</p></body></html>"))
+        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2}, {a,b}, d, {q0}, {q1})"))
 
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_AFNDScreen()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = Ui_AFNDScreen()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
