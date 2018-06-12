@@ -23,7 +23,7 @@ class Ui_DPDAScreen(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 40))
         self.label_3.setObjectName("label_3")
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
@@ -35,18 +35,18 @@ class Ui_DPDAScreen(object):
         self.label.setObjectName("label")
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(460, 30, 91, 138))
+        self.label_2.setGeometry(QtCore.QRect(460, 40, 91, 138))
         self.label_2.setObjectName("label_2")
         self.label_2.setVisible(False)
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(20, 50, 181, 20))
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setPlaceholderText("({q0, q1, q2, q3}, {a, b}, {0, 1}, {q0}, {0}, {q3})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 73, 75, 23))
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.creatDPDA)
 
@@ -176,9 +176,11 @@ class Ui_DPDAScreen(object):
                 # print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
 
                 text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+                self.label.setStyleSheet('color: black')
+
                 self.label.setText(text)
             except Exception:
-                self.label.setText('String invalida')
+                self.mensagemDeErro('String invalida')
 
     def creatDPDA(self):
         if self.lineEdit.text() != "":
@@ -193,7 +195,7 @@ class Ui_DPDAScreen(object):
                 self.label.setText('')
 
             except Exception:
-                self.label.setText('Erro na inserção da definição formal')
+                self.mensagemDeErro('Erro na inserção da definição formal')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -207,7 +209,12 @@ class Ui_DPDAScreen(object):
                                         "<p>(q1, 1, 0)</p>"
                                         "<p>(q1, 1,)</p>"
                                         "<p>(q1, )</p>""</body></html>"))
-        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2, q3}, {a, b}, {0, 1}, {q0}, {0}, {q3})"))
+        self.label_3.setText(_translate("MainWindow", "insira uma entrada na seguinte forma: \n"
+                                                      "({q0, q1, q2, q3}, {a, b}, {0, 1}, \n{q0}, {0}, {q3})"))
+
+    def mensagemDeErro(self, errorMessage):
+        self.label.setStyleSheet('color: red')
+        self.label.setText(errorMessage)
 
 # if __name__ == "__main__":
 #     import sys

@@ -15,7 +15,7 @@ class Ui_MTScreen(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
+        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 40))
         self.label_3.setObjectName("label_3")
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
@@ -32,13 +32,13 @@ class Ui_MTScreen(object):
         self.label_2.setVisible(False)
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(20, 50, 181, 20))
         self.lineEdit.setObjectName("definicao_formal")
         self.lineEdit.setPlaceholderText("({q0, q1, q2, q3, q4}, {0, 1}, {0, 1, x, y, .}, d , {q0}, {.}, {q4})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 75, 75, 23))
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.criar_tabela_transicao)
 
@@ -65,7 +65,7 @@ class Ui_MTScreen(object):
                 self.tableWidget.cellChanged.connect(self.c_current)
                 self.label.setText('')
             except Exception:
-                self.label.setText('Erro na inserção da definição formal')
+                self.mensagemDeErro('Erro na inserção da definição formal')
 
     def resetTable(self):
         self.tableWidget.clear()
@@ -161,10 +161,11 @@ class Ui_MTScreen(object):
                                            self.estado_inicial, self.simbolo_branco, self.estados_finais)
 
                 transicao_criada = retorna_derivacao(m_turing, self.strInput.text())
-                print(transicao_criada)
+                self.label.setStyleSheet('color: black')
+
                 self.label.setText(transicao_criada)
             except Exception:
-                self.label.setText('String invalida')
+                self.mensagemDeErro('String invalida')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -176,8 +177,14 @@ class Ui_MTScreen(object):
                                         '<p>a transição do</p>'
                                         '<p>maquina de turing</p>'
                                         '</body></html>'))
-        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2, q3, q4}, {0, 1}, {0, 1, x, y, .}, d , {q0}, {.}, "
+        self.label_3.setText(_translate("MainWindow", "insira uma entrada na seguinte forma: \n"
+                                                      "({q0, q1, q2, q3, q4}, {0, 1}, \n"
+                                                      "{0, 1, x, y, .}, d , {q0}, {.}, "
                                                       "{q4})"))
+
+    def mensagemDeErro(self, errorMessage):
+        self.label.setStyleSheet('color: red')
+        self.label.setText(errorMessage)
 
 # if __name__ == "__main__":
 #     import sys

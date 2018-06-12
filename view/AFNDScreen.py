@@ -13,9 +13,10 @@ from automatos.NFA import *
 
 
 class Ui_AFNDScreen(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(730, 267)
+        MainWindow.resize(710, 267)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -55,7 +56,7 @@ class Ui_AFNDScreen(object):
         self.btnOK.clicked.connect(self.run)
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(630, 30, 91, 91))
+        self.label_2.setGeometry(QtCore.QRect(610, 30, 91, 91))
         self.label_2.setObjectName("label_2")
         self.label_2.setVisible(False)
 
@@ -193,6 +194,7 @@ class Ui_AFNDScreen(object):
                     self.nda = creatNFA(self.states, self.symbols, self.transition, self.initialState, self.finalStates)
 
                     text = str(list(self.nda.validate_input(self.strInput.text(), step=True)))
+                    self.label.setStyleSheet('color: black')
 
                     self.label.setText('{}'.format(text))
 
@@ -200,7 +202,7 @@ class Ui_AFNDScreen(object):
                         self.creatMenu()
 
             except Exception:
-                self.label.setText('String invalida')
+                self.mensagemDeErro('String invalida')
 
         else:
             self.isAFND = True
@@ -222,7 +224,7 @@ class Ui_AFNDScreen(object):
                 self.label.setText('')
 
             except Exception:
-                self.label.setText('Erro na inserção da definição formal')
+                self.mensagemDeErro('Erro na inserção da definição formal')
 
     def setTableValue(self, states, symbols):
         symbols.append('')
@@ -259,9 +261,15 @@ class Ui_AFNDScreen(object):
         self.btn.setText(_translate("MainWindow", "click"))
         self.btnOK.setText(_translate("MainWindow", "Ok"))
         self.label_2.setText(_translate("MainWindow",
-                                        "<html><head/><body><p>Taleba para inserir</p><p>a transição do</p><p>autômato"
+                                        "<html><head/><body><p>Tabela para inserir</p><p>a transição do</p><p>autômato"
                                         " finitio</p><p>não deterministico</p></body></html>"))
-        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2}, {a,b}, d, {q0}, {q1})"))
+        self.label_3.setText(_translate("MainWindow", "insira uma entrada na seguinte forma: \n"
+                                                      "({q0, q1, q2}, {a,b}, d, {q0}, {q1})"))
+
+    def mensagemDeErro(self, errorMessage):
+        self.label.setStyleSheet('color: red')
+        self.label.setText(errorMessage)
+
 
 # if __name__ == "__main__":
 #     import sys

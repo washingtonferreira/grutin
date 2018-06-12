@@ -10,6 +10,7 @@ from PyQt5 import QtCore, QtWidgets
 from view.AFDScreen import Ui_AFDScreen
 from view.AFNDScreen import Ui_AFNDScreen
 from view.DPDAScreen import Ui_DPDAScreen
+from view.GLCScreen import Ui_GLCScreen
 from view.MTScreen import Ui_MTScreen
 
 
@@ -38,6 +39,11 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+    def openGLCScrenn(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GLCScreen();
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -69,6 +75,9 @@ class Ui_MainWindow(object):
 
         self.menumaquina_de_turing = QtWidgets.QMenu(self.menubar)
         self.menumaquina_de_turing.setObjectName("menumaquina_de_turing")
+
+        self.gramaticaLivreDeContexto = QtWidgets.QMenu(self.menubar)
+        self.gramaticaLivreDeContexto.setObjectName("gramaticaLivreDeContexto")
 
         MainWindow.setMenuBar(self.menubar)
 
@@ -114,15 +123,26 @@ class Ui_MainWindow(object):
         self.actionMT.triggered.connect(self.callMT)
         # self.menu_automatos.addSeparator()
 
+        self.actionGLC = QtWidgets.QAction(MainWindow)
+        self.actionGLC.setObjectName("actionGLC")
+        self.actionGLC.triggered.connect(self.callGLC)
+
         self.menu_automatos.addAction(self.menuAFD.menuAction())
         self.menu_automatos.addAction(self.menuAFND.menuAction())
         self.menu_automatos.addAction(self.menuPDA.menuAction())
+
         self.menumaquina_de_turing.addAction(self.actionMT)
         self.menubar.addAction(self.menu_automatos.menuAction())
         self.menubar.addAction(self.menumaquina_de_turing.menuAction())
 
+        self.gramaticaLivreDeContexto.addAction(self.actionGLC)
+        self.menubar.addAction(self.gramaticaLivreDeContexto.menuAction())
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def callGLC(self):
+        self.openGLCScrenn()
 
     def callAFDScreen(self):
         self.openAFDScreen()
@@ -151,6 +171,7 @@ class Ui_MainWindow(object):
         self.menuAFD.setTitle(_translate("MainWindow", "AFD"))
         self.menuAFND.setTitle(_translate("MainWindow", "AFND"))
         self.menuPDA.setTitle(_translate("MainWindow", "PDA"))
+        self.gramaticaLivreDeContexto.setTitle(_translate("MainWindow", "GLC"))
         self.menumaquina_de_turing.setTitle(_translate("MainWindow", "maquina de turing"))
         self.actionAutomato_2.setText(_translate("MainWindow", "Automato"))
         self.actionExercicios_4.setText(_translate("MainWindow", "Exercicios"))
@@ -159,6 +180,8 @@ class Ui_MainWindow(object):
         self.actionAutomato_4.setText(_translate("MainWindow", "Automato"))
         self.actionExercicios_6.setText(_translate("MainWindow", "Exercicios"))
         self.actionMT.setText(_translate("MainWindow", "MT"))
+        self.actionGLC.setText(_translate("MainWindow", "GLC"))
+
 
 
 if __name__ == "__main__":

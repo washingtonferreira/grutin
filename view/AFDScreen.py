@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
+from PyQt5.uic.properties import QtGui
 
 from automatos.DFA import *
 
@@ -16,7 +17,7 @@ class Ui_AFDScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(580, 380)
+        MainWindow.resize(580, 300)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -33,17 +34,17 @@ class Ui_AFDScreen(object):
         self.tableWidget.setRowCount(0)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 180, 491, 150))
+        self.label.setGeometry(QtCore.QRect(20, 130, 491, 150))
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 30, 181, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(20, 38, 181, 20))
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setPlaceholderText("({q0, q1, q2}, {0,1}, d, {q0}, {q1})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 60, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 70, 75, 23))
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.creatAFD)
 
@@ -119,7 +120,8 @@ class Ui_AFDScreen(object):
         if self.tableWidget.isVisible():
             self.resetTable()
 
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
+        # self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(240, 20, 224, 115))
         self.tableWidget.setColumnCount(len(symbols))
         self.tableWidget.setRowCount(len(states))
 
@@ -171,12 +173,13 @@ class Ui_AFDScreen(object):
                 self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
                 text = retornaNormaPadrao(self.dfa, self.strInput.text())
                 self.label.setText(text)
+                self.label.setStyleSheet('color: black')
 
                 if self.label.text() != "":
                     self.creatMenu()
 
             except Exception:
-                self.label.setText('String invalida')
+                self.mensagemDeErro('String invalida')
 
         else:
             self.isAFD = True
@@ -199,7 +202,7 @@ class Ui_AFDScreen(object):
                 self.label.setText('')
 
             except Exception:
-                self.mensagemDeErro()
+                self.mensagemDeErro("Erro na insersão da definição formal")
 
     def setTableValue(self, states, symbols):
 
@@ -230,15 +233,17 @@ class Ui_AFDScreen(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.label_2.setText(_translate("MainWindow",
-                                        "<html><head/><body><p>Taleba para inserir</p><p>a transição "
+                                        "<html><head/><body><p>Tabela para inserir</p><p>a transição "
                                         "do</p><p>autômato finitio</p><p>deterministico</p></body></html>"))
         MainWindow.setWindowTitle(_translate("MainWindow", "Automato Finito Deterministico"))
         self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
-        self.label_3.setText(_translate("MainWindow", "({q0, q1, q2}, {0,1}, d, {q0}, {q1})"))
+        self.label_3.setText(_translate("MainWindow", "insira uma entrada na seguinte forma: \n"
+                                                      "({q0, q1, q2}, {0,1}, d, {q0}, {q1})"))
 
-    def mensagemDeErro(self):
-        self.label.setText('Erro na inserção da definição formal')
+    def mensagemDeErro(self, errorMessage):
+        self.label.setStyleSheet('color: red')
+        self.label.setText(errorMessage)
 
 
 if __name__ == "__main__":
