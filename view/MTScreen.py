@@ -173,7 +173,7 @@ class Ui_MTScreen(object):
         self.label.setText(_translate("MainWindow", ""))
         self.btn.setText(_translate("MainWindow", "click"))
         self.label_2.setText(_translate("MainWindow",
-                                        '<html><head/><body><p>Taleba para inserir</p>'
+                                        '<html><head/><body><p>Tabela para inserir</p>'
                                         '<p>a transição do</p>'
                                         '<p>maquina de turing</p>'
                                         '</body></html>'))

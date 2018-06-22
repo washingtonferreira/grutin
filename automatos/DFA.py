@@ -49,7 +49,10 @@ def retornaNormaPadrao(dfa, inputStr):
         inputAux = inputStr[-cutCount:]
         estadoAtual = transicao[e][inputAux]
 
-        subNorma = norma2.format(e, inputStr[:-cutCount], inputAux, estadoAtual)
+        if inputStr[:-cutCount] != '':
+            subNorma = norma2.format(e, inputStr[:-cutCount], inputAux, estadoAtual)
+        else:
+            subNorma = norma2.format(e, 'ε', inputAux, estadoAtual)
 
         strSaida += norma1.format(estadoI, subNorma, e) + '\n'
         inputStr = inputStr[:-cutCount]

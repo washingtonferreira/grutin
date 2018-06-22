@@ -39,6 +39,7 @@ class Ui_GLCScreen(object):
         self.btn_valida_def_formal.setEnabled(False)
         self.btn_valida_def_formal.setGeometry(QtCore.QRect(140, 50, 131, 31))
         self.btn_valida_def_formal.setObjectName("btn_valida_def_formal")
+        # self.btn_valida_def_formal.clicked.connect(self.cria_funcao_transicao)
 
         self.btn_producoes_vazias = QtWidgets.QPushButton(Form)
         self.btn_producoes_vazias.setGeometry(QtCore.QRect(20, 380, 141, 31))
@@ -220,12 +221,12 @@ class Ui_GLCScreen(object):
         self.lbl_fnc.setText(_translate("Form", "Forma Normal de Chomsky:"))
         self.btn_validar_glc.setText(_translate("Form", "Validar Gramática Livre de Contexto"))
 
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_GLCScreen()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = Ui_GLCScreen()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())

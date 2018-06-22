@@ -136,7 +136,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menumaquina_de_turing.menuAction())
 
         self.gramaticaLivreDeContexto.addAction(self.actionGLC)
-        self.menubar.addAction(self.gramaticaLivreDeContexto.menuAction())
+        # self.menubar.addAction(self.gramaticaLivreDeContexto.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

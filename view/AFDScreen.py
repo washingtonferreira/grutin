@@ -5,10 +5,11 @@
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
-from PyQt5.uic.properties import QtGui
+import networkx as nx
+import matplotlib.pyplot as plt
+import random
 
 from automatos.DFA import *
 
@@ -121,7 +122,7 @@ class Ui_AFDScreen(object):
             self.resetTable()
 
         # self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
-        self.tableWidget.setGeometry(QtCore.QRect(240, 20, 224, 115))
+        self.tableWidget.setGeometry(QtCore.QRect(240, 20, 241, 115))
         self.tableWidget.setColumnCount(len(symbols))
         self.tableWidget.setRowCount(len(states))
 
@@ -170,7 +171,17 @@ class Ui_AFDScreen(object):
     def run(self):
         if self.isAFD:
             try:
+                # self.transition = {
+                #     'q0': {'0': 'q1', '1': 'q2'},
+                #     'q1': {'0': 'q3', '1': 'q4'},
+                #     'q2': {'0': 'q1', '1': 'q3'},
+                #     'q3': {'0': 'q0', '1': 'q5'},
+                #     'q4': {'0': 'q3', '1': 'q0'},
+                #     'q5': {'0': 'q2', '1': 'q4'}
+                # }
+
                 self.dfa = creatDFA(self.states, self.symbols, self.initialState, self.finalStates, self.transition)
+
                 text = retornaNormaPadrao(self.dfa, self.strInput.text())
                 self.label.setText(text)
                 self.label.setStyleSheet('color: black')
@@ -178,6 +189,7 @@ class Ui_AFDScreen(object):
                 if self.label.text() != "":
                     self.creatMenu()
 
+                self.criarDiagrama()
             except Exception:
                 self.mensagemDeErro('String invalida')
 
@@ -244,6 +256,21 @@ class Ui_AFDScreen(object):
     def mensagemDeErro(self, errorMessage):
         self.label.setStyleSheet('color: red')
         self.label.setText(errorMessage)
+
+    def criarDiagrama(self):
+        g = nx.Graph()
+
+        for e in self.transition:
+            for a in self.symbols:
+                g.add_node(e, pos=(random.randint(0, 12), random.randint(0, 12)))
+                g.add_edge(e, self.transition[e][a], weight=a)
+
+        pos = nx.get_node_attributes(g, 'pos')
+        nx.draw(g, pos, with_labels=True)
+        labels = nx.get_edge_attributes(g, 'weight')
+        nx.draw_networkx_edge_labels(g, pos, edge_labels=labels)
+
+        plt.show()
 
 
 if __name__ == "__main__":
