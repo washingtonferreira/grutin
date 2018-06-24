@@ -6,47 +6,64 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QHeaderView
 
 from automatos.DPDA import *
 
 
 class Ui_DPDAScreen(object):
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(600, 235)
+        MainWindow.resize(700, 350)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 40))
+        self.label_3.setGeometry(QtCore.QRect(20, 10, 291, 60))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
+        self.label.setGeometry(QtCore.QRect(20, 210, 531, 150))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
         self.label.setObjectName("label")
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(460, 40, 91, 138))
+        self.label_2.setGeometry(QtCore.QRect(550, 40, 150, 180))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_2.setVisible(False)
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 50, 181, 20))
-        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setGeometry(QtCore.QRect(20, 80, 181, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText("({q0, q1, q2, q3}, {a, b}, {0, 1}, {q0}, {0}, {q3})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 73, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 110, 75, 23))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btn.setFont(font)
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.creatDPDA)
 
@@ -69,8 +86,11 @@ class Ui_DPDAScreen(object):
         self.tableWidget.setVisible(False)
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
 
     def creatTable(self, states, symbols, symbolsStack):
         self.label_2.setVisible(True)
@@ -81,7 +101,10 @@ class Ui_DPDAScreen(object):
         self.verticalHeaderLabels = self.verticalSymbols(states, symbols, symbolsStack)
         # horizontalHeaderLabels = ['estado', 'pilha']
         horizontalHeaderLabels = ['(estado, leitura, pilha)']
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 202, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(280, 40, 255, 151))
+        # font = QtGui.QFont()
+        # font.setPointSize(12)
+        # self.tableWidget.setFont(font)
 
         self.tableWidget.setColumnCount(len(horizontalHeaderLabels))
         self.tableWidget.setRowCount(len(self.verticalHeaderLabels))
@@ -101,7 +124,6 @@ class Ui_DPDAScreen(object):
                     teste.append(c)
         return teste
 
-
     def c_current(self):
         states = sorted(self.states)
         symbols = sorted(self.symbols)
@@ -117,7 +139,6 @@ class Ui_DPDAScreen(object):
         state = string[0].replace(' ', '')
         alphabet = string[1].replace(' ', '')
         stackSymble = string[2].replace(' ', '')
-
 
         if value != '':
             value = self.getTuple(value)
@@ -154,13 +175,19 @@ class Ui_DPDAScreen(object):
         _translate = QtCore.QCoreApplication.translate
 
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
-        self.strInput.setGeometry(QtCore.QRect(20, 110, 113, 20))
+        self.strInput.setGeometry(QtCore.QRect(20, 140, 121, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.strInput.setFont(font)
+        self.strInput.setText("")
         self.strInput.setObjectName("strInput")
-        self.strInput.setPlaceholderText("String de entrada!")
         self.strInput.show()
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
-        self.btnOK.setGeometry(QtCore.QRect(150, 110, 75, 23))
+        self.btnOK.setGeometry(QtCore.QRect(150, 140, 81, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnOK.setFont(font)
         self.btnOK.setObjectName("btnOK")
         self.btnOK.setText(_translate("MainWindow", "Ok"))
         self.btnOK.show()
@@ -170,12 +197,27 @@ class Ui_DPDAScreen(object):
     def run(self):
         if self.strInput.text() != "":
             try:
+                # self.transition = {
+                #     'q0': {
+                #         'a': {'0': ('q1', ('1', '0'))}  # transition pushes '1' to stack
+                #     },
+                #     'q1': {
+                #         'a': {'1': ('q1', ('1', '1'))},
+                #         'b': {'1': ('q2', '')}  # transition pops from stack
+                #     },
+                #     'q2': {
+                #         'b': {'1': ('q2', '')},
+                #         '': {'0': ('q3', ('0',))}  # transition does not change stack
+                #     }
+                # }
+
                 pda = creatDPDA(self.states, self.symbols, self.symbolsStack, self.transition, self.initialState,
                                 self.symbolsStackInitialself, self.finalStates)
 
                 # print([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
 
-                text = str([(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
+                text = str(
+                    [(state, stack.copy()) for state, stack in pda.validate_input(self.strInput.text(), step=True)])
                 self.label.setStyleSheet('color: black')
 
                 self.label.setText(text)

@@ -1,44 +1,60 @@
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QHeaderView
 
 from automatos.MT import *
 
 
 class Ui_MTScreen(object):
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(550, 270)
+        MainWindow.resize(700, 350)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 40))
+        self.label_3.setGeometry(QtCore.QRect(20, 10, 291, 60))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 0, 0))
         self.tableWidget.setObjectName("tableWidget")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 200, 491, 16))
+        self.label.setGeometry(QtCore.QRect(20, 210, 531, 150))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
         self.label.setObjectName("label")
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(440, 30, 91, 138))
+        self.label_2.setGeometry(QtCore.QRect(550, 40, 150, 180))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_2.setVisible(False)
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 50, 181, 20))
-        self.lineEdit.setObjectName("definicao_formal")
+        self.lineEdit.setGeometry(QtCore.QRect(20, 80, 181, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText("({q0, q1, q2, q3, q4}, {0, 1}, {0, 1, x, y, .}, d , {q0}, {.}, {q4})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
-        self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 75, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(20, 110, 75, 23))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btn.setFont(font)
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.criar_tabela_transicao)
 
@@ -75,6 +91,10 @@ class Ui_MTScreen(object):
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(230, 20, 278, 151))
         self.tableWidget.setObjectName("tableWidget")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
+
 
         self.tableWidget.show()
 
@@ -86,7 +106,7 @@ class Ui_MTScreen(object):
 
         self.vertical_header_labels = self.coluna_estados(estados, simbolos_fita)
         horizontal_header_labels = ['(Estado, Simbolo, Fita)']
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 194, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(280, 40, 255, 151))
 
         self.tableWidget.setColumnCount(len(horizontal_header_labels))
         self.tableWidget.setRowCount(len(self.vertical_header_labels))
@@ -140,13 +160,19 @@ class Ui_MTScreen(object):
         _translate = QtCore.QCoreApplication.translate
 
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
-        self.strInput.setGeometry(QtCore.QRect(20, 110, 113, 20))
+        self.strInput.setGeometry(QtCore.QRect(20, 140, 121, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.strInput.setFont(font)
+        self.strInput.setText("")
         self.strInput.setObjectName("strInput")
-        self.strInput.setPlaceholderText('String de entrada!')
         self.strInput.show()
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
-        self.btnOK.setGeometry(QtCore.QRect(150, 110, 75, 23))
+        self.btnOK.setGeometry(QtCore.QRect(150, 140, 81, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnOK.setFont(font)
         self.btnOK.setObjectName("btnOK")
         self.btnOK.setText(_translate("MainWindow", "Ok"))
         self.btnOK.show()
@@ -156,6 +182,27 @@ class Ui_MTScreen(object):
     def executa_maquina_turing(self):
         if self.strInput.text() != "":
             try:
+
+                self.funcao_transicao = {
+                    'q0': {
+                        '0': ('q1', 'x', 'R'),
+                        'y': ('q3', 'y', 'R')
+                    },
+                    'q1': {
+                        '0': ('q1', '0', 'R'),
+                        '1': ('q2', 'y', 'L'),
+                        'y': ('q1', 'y', 'R')
+                    },
+                    'q2': {
+                        '0': ('q2', '0', 'L'),
+                        'x': ('q0', 'x', 'R'),
+                        'y': ('q2', 'y', 'L')
+                    },
+                    'q3': {
+                        'y': ('q3', 'y', 'R'),
+                        '.': ('q4', '.', 'R')
+                    }
+                }
 
                 m_turing = cria_maq_turing(self.estados, self.alfabeto, self.simbolos_fita, self.funcao_transicao,
                                            self.estado_inicial, self.simbolo_branco, self.estados_finais)

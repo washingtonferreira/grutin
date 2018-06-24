@@ -5,7 +5,7 @@
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -18,40 +18,59 @@ class Ui_AFDScreen(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(580, 300)
+        MainWindow.resize(610, 420)
         MainWindow.setAnimated(False)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 5, 181, 31))
-        self.label_3.setObjectName("label_3")
-
-        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(250, 20, 0, 0))
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
-        self.tableWidget.setRowCount(0)
-
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 130, 491, 150))
+        self.label.setGeometry(QtCore.QRect(20, 210, 531, 150))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
         self.label.setObjectName("label")
 
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 38, 181, 20))
+        self.lineEdit.setGeometry(QtCore.QRect(10, 50, 181, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.setPlaceholderText("({q0, q1, q2}, {0,1}, d, {q0}, {q1})")
 
         self.btn = QtWidgets.QPushButton(self.centralwidget)
         self.btn.setEnabled(True)
-        self.btn.setGeometry(QtCore.QRect(20, 70, 75, 23))
+        self.btn.setGeometry(QtCore.QRect(10, 80, 75, 23))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btn.setFont(font)
         self.btn.setObjectName("btn")
         self.btn.clicked.connect(self.creatAFD)
 
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(240, 40, 211, 151))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.setVisible(False)
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(470, 30, 91, 91))
+        self.label_2.setGeometry(QtCore.QRect(460, 40, 131, 131))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
+
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(10, -10, 291, 51))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -121,8 +140,11 @@ class Ui_AFDScreen(object):
         if self.tableWidget.isVisible():
             self.resetTable()
 
-        # self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
-        self.tableWidget.setGeometry(QtCore.QRect(240, 20, 241, 115))
+        self.tableWidget.setGeometry(QtCore.QRect(240, 40, 211, 151))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
+
         self.tableWidget.setColumnCount(len(symbols))
         self.tableWidget.setRowCount(len(states))
 
@@ -155,13 +177,19 @@ class Ui_AFDScreen(object):
         _translate = QtCore.QCoreApplication.translate
 
         self.strInput = QtWidgets.QLineEdit(self.centralwidget)
-        self.strInput.setGeometry(QtCore.QRect(20, 110, 113, 20))
+        self.strInput.setGeometry(QtCore.QRect(10, 130, 121, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.strInput.setFont(font)
+        self.strInput.setText("")
         self.strInput.setObjectName("strInput")
-        self.strInput.setPlaceholderText('String de entrada!')
         self.strInput.show()
 
         self.btnOK = QtWidgets.QPushButton(self.centralwidget)
-        self.btnOK.setGeometry(QtCore.QRect(150, 110, 75, 23))
+        self.btnOK.setGeometry(QtCore.QRect(140, 130, 81, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnOK.setFont(font)
         self.btnOK.setObjectName("btnOK")
         self.btnOK.setText(_translate("MainWindow", "Ok"))
         self.btnOK.show()
@@ -237,7 +265,10 @@ class Ui_AFDScreen(object):
         self.tableWidget.setVisible(False)
 
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(230, 20, 211, 151))
+        self.tableWidget.setGeometry(QtCore.QRect(240, 40, 211, 151))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tableWidget.setFont(font)
         self.tableWidget.setObjectName("tableWidget")
 
         self.tableWidget.show()
@@ -252,6 +283,7 @@ class Ui_AFDScreen(object):
         self.btn.setText(_translate("MainWindow", "click"))
         self.label_3.setText(_translate("MainWindow", "insira uma entrada na seguinte forma: \n"
                                                       "({q0, q1, q2}, {0,1}, d, {q0}, {q1})"))
+        self.btn.setText(_translate("MainWindow", "click"))
 
     def mensagemDeErro(self, errorMessage):
         self.label.setStyleSheet('color: red')
